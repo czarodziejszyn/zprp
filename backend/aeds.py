@@ -11,14 +11,13 @@ if not API_KEY:
 BASE_URL = "https://api.um.warszawa.pl/api/action/aed_get"
 
 
-class AED(BaseModel):
+class AEDs(BaseModel):
     street: str | None = None
     building: str | None = None
     latitude: float | None = None
     longitude: float | None = None
 
 
-app = FastAPI(title="Warsaw AED Locations API")
 
 async def fetch_aeds(limit: int = 10):
     params = {"apikey": API_KEY, "limit": limit}
@@ -29,7 +28,6 @@ async def fetch_aeds(limit: int = 10):
         except httpx.ReadTimeout:
             raise HTTPException(status_code=504, detail="API request timed out")
 
-    print("Raw API:", response.text)
     data = response.json()
 
     # Handle different possible response structures
@@ -55,7 +53,7 @@ async def fetch_aeds(limit: int = 10):
 
         props = item.get("properties", {})
 
-        aeds.append(AED(
+        aeds.append(AEDs(
             street=props.get("location_street"),
             building=props.get("location_building"),
             latitude=lat,
@@ -63,12 +61,3 @@ async def fetch_aeds(limit: int = 10):
         ))
 
     return aeds
-
-
-
-@app.get("/aeds", response_model=list[AED])
-async def get_aeds(limit: int = Query(10, ge=1, le=200)):
-    """
-    Returns AEDs.
-    """
-    return await fetch_aeds(limit=limit)

@@ -20,7 +20,6 @@ class Pharmacy(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Pharmacies API")
 
 async def fetch_pharmacies(limit: int = 10):
     params = {
@@ -64,9 +63,3 @@ async def fetch_pharmacies(limit: int = 10):
     return pharmacies
 
 
-@app.get("/pharmacies", response_model=list[Pharmacy])
-async def get_pharmacies(limit: int = Query(10, ge=1, le=100)):
-    """
-    Get list of pharmacies in Warsaw.
-    """
-    return await fetch_pharmacies(limit=limit)

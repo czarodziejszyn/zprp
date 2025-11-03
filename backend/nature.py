@@ -19,8 +19,6 @@ class Nature(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Nature API")
-
 
 # Shared fetch function
 async def fetch_nature(dataset_name: str, limit: int = 100):
@@ -60,9 +58,4 @@ async def fetch_nature(dataset_name: str, limit: int = 100):
 
     return natures
 
-@app.get("/nature/{dataset_name}", response_model=list[Nature])
-async def get_nature(dataset_name: str):
-    """
-    Get nature data by dataset_name (bushes, forests, trees). Default limit is 100 results.
-    """
-    return await fetch_nature(dataset_name)
+

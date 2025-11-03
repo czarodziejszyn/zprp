@@ -26,7 +26,7 @@ class Accommodation(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Accommodations API")
+
 async def fetch_accommodations(dataset_name: str, limit: int = 10):
     resource_id = RESOURCE_IDS.get(dataset_name)
     if not resource_id:
@@ -64,14 +64,3 @@ async def fetch_accommodations(dataset_name: str, limit: int = 10):
         ))
 
     return accommodations
-
-
-@app.get("/accommodations/{dataset_name}", response_model=list[Accommodation])
-async def get_accommodations(
-    dataset_name: str,
-    limit: int = Query(10, ge=1, le=100)
-):
-    """
-    Get list of accommodations (hotels or university dorms).
-    """
-    return await fetch_accommodations(dataset_name, limit=limit)

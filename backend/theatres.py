@@ -20,7 +20,6 @@ class Theatre(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Theatres API")
 
 async def fetch_theatres():
     params = {
@@ -65,6 +64,4 @@ async def fetch_theatres():
     return theatres
 
 
-@app.get("/theatres", response_model=list[Theatre])
-async def get_theatres():
-    return await fetch_theatres()
+

@@ -16,7 +16,7 @@ class PoliceStation(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Police Stations API")
+
 
 async def fetch_police_stations(limit: int = 10):
     params = {
@@ -60,7 +60,3 @@ async def fetch_police_stations(limit: int = 10):
         ))
 
     return stations
-
-@app.get("/police_stations", response_model=list[PoliceStation])
-async def get_police_stations(limit: int = Query(10, ge=1, le=200)):
-    return await fetch_police_stations(limit=limit)

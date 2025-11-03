@@ -20,7 +20,6 @@ class BikeStation(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Bicycle Stations API")
 
 async def fetch_bike_stations(dataset_name: str, limit: int = 10):
     resource_id = RESOURCE_IDS.get(dataset_name)
@@ -60,10 +59,3 @@ async def fetch_bike_stations(dataset_name: str, limit: int = 10):
         ))
 
     return stations
-
-@app.get("/bike_stations", response_model=list[BikeStation])
-async def get_bike_stations(limit: int = Query(10, ge=1, le=100)):
-    """
-    Get a list of Warsaw bicycle stations.
-    """
-    return await fetch_bike_stations("bike_stations", limit=limit)

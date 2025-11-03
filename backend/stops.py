@@ -20,7 +20,7 @@ class Stop(BaseModel):
     latitude: float | None = None
     longitude: float | None = None
 
-app = FastAPI(title="Warsaw Public Transport API")
+
 async def fetch_stops(limit: int = 10):
     params = {"id": STOPS_RESOURCE_ID}
     headers = {"Cache-Control": "no-cache"}
@@ -51,10 +51,3 @@ async def fetch_stops(limit: int = 10):
         ))
 
     return stops
-
-@app.get("/stops", response_model=list[Stop])
-async def get_stops(limit: int = Query(10, ge=1, le=500)):
-    """
-    Get a list of Warsaw public transport stops (up to `limit`).
-    """
-    return await fetch_stops(limit=limit)

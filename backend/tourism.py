@@ -22,7 +22,6 @@ class Attraction(BaseModel):
     longitude: float | None = None
 
 
-app = FastAPI(title="Warsaw Tourist Attractions API")
 
 
 async def fetch_attractions():
@@ -51,7 +50,3 @@ async def fetch_attractions():
 
     return attractions
 
-
-@app.get("/tourist_attractions", response_model=list[Attraction])
-async def get_attractions():
-    return await fetch_attractions()
