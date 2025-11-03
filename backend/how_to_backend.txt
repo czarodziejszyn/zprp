@@ -1,0 +1,14 @@
+1. Log into Warszawa API: https://api.um.warszawa.pl/
+Read your assigned API KEY.
+
+2. Set API KEY as env variable:
+* Windows: set WARSZAWA_API_KEY=your_api_key
+
+* Linux: $env:WARSZAWA_API_KEY="your_api_key"
+
+
+3. Install requirements.txt
+
+4. Run API:
+cd backend
+uvicorn main:app --reload
