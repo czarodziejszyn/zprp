@@ -1,28 +1,27 @@
 import asyncio
-from api.theatres import fetch_theatres
-from db import get_conn, init_db
+from api.aeds import fetch_aeds
+from .db import get_conn, init_db
 
 async def main():
     init_db()
-    theatres = await fetch_theatres()
+    aeds = await fetch_aeds()
 
     with get_conn() as conn:
-        for t in theatres:
+        for a in aeds:
             conn.execute("""
-                INSERT INTO theatres (name, address, district, latitude, longitude, geom)
-                VALUES (%s, %s, %s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
+                INSERT INTO aeds (street, building, latitude, longitude, geom)
+                VALUES (%s, %s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
                 ON CONFLICT DO NOTHING;
             """, (
-                t.name,
-                t.address,
-                t.district,
-                t.latitude,
-                t.longitude,
-                t.longitude,  # POINT(lon, lat) order
-                t.latitude
+                a.street,
+                a.building,
+                a.latitude,
+                a.longitude,
+                a.longitude,  # POINT(lon, lat)
+                a.latitude
             ))
 
-    print(f"Imported {len(theatres)} theatres into PostgreSQL.")
+    print(f"Imported {len(aeds)} AEDs into PostgreSQL.")
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -21,11 +21,12 @@ def get_conn():
 def init_db():
     with get_conn() as conn:
         conn.execute("""
-            CREATE TABLE IF NOT EXISTS theatres (
+            CREATE EXTENSION IF NOT EXISTS postgis;
+
+            CREATE TABLE IF NOT EXISTS aeds (
                 id SERIAL PRIMARY KEY,
-                name TEXT,
-                address TEXT,
-                district TEXT,
+                street TEXT,
+                building TEXT,
                 latitude DOUBLE PRECISION,
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)

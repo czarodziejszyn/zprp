@@ -11,5 +11,19 @@ docker compose up -d --build
 API Swagger documentation should be available on http://127.0.0.1:8000/docs.
 
 
-5. Remove backend Docker image:
+5. Importing data to POstreSQL database:
+After starting backend Docker image, run:
+
+docker compose exec api bash
+python -m db.import_data
+
+To check results, you can view data from the table through:
+docker compose exec db bash
+psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+
+Then doing SQL query, f.ex:
+SELECT street, building, latitude, longitude FROM aeds LIMIT 5;
+
+
+6. Remove backend Docker image:
 docker compose down -v --remove-orphans
