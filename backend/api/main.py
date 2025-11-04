@@ -1,14 +1,15 @@
 from fastapi import FastAPI, Query
 
-from police_stations import fetch_police_stations, PoliceStation
-from aeds import fetch_aeds, AEDs
-from pharmacies import fetch_pharmacies, Pharmacy
-from nature import fetch_nature, Nature
-from bicycle_stations import fetch_bike_stations, BikeStation
-from accomodations import fetch_accommodations, Accommodation
-from stops import fetch_stops, Stop
-from theatres import fetch_theatres, Theatre
-from tourism import fetch_attractions, Attraction
+from api.police_stations import fetch_police_stations, PoliceStation
+from api.aeds import fetch_aeds, AEDs
+from api.pharmacies import fetch_pharmacies, Pharmacy
+from api.nature import fetch_nature, Nature
+from api.bicycle_stations import fetch_bike_stations, BikeStation
+from api.accomodations import fetch_accommodations, Accommodation
+from api.stops import fetch_stops, Stop
+from api.theatres import fetch_theatres, Theatre
+from api.tourism import fetch_attractions, Attraction
+
 
 
 app = FastAPI(title="Warsaw Public Safety API")

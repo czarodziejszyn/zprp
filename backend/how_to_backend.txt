@@ -1,14 +1,15 @@
 1. Log into Warszawa API: https://api.um.warszawa.pl/
 Read your assigned API KEY.
 
-2. Set API KEY as env variable:
-* Windows: set WARSZAWA_API_KEY=your_api_key
+2. Set API KEY as variable in /backend/.env file
 
-* Linux: $env:WARSZAWA_API_KEY="your_api_key"
+3. Start Docker.
+
+4. Start backend:
+docker compose up -d --build
+
+API Swagger documentation should be available on http://127.0.0.1:8000/docs.
 
 
-3. Install requirements.txt
-
-4. Run API:
-cd backend
-uvicorn main:app --reload
+5. Remove backend Docker image:
+docker compose down -v --remove-orphans
