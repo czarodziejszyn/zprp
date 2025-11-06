@@ -118,3 +118,44 @@ def init_db():
                      
 
         """)
+
+
+def create_total_city_obj_table():
+    with get_conn() as conn:
+        conn.execute("DROP TABLE IF EXISTS city_obj;")
+        conn.execute("""
+            CREATE TABLE city_obj (
+                id SERIAL PRIMARY KEY,
+                objtype TEXT,
+                geom GEOGRAPHY(POINT, 4326)
+            );
+        """)
+
+
+        insert_map = [
+            ("accommodations",    "objtype"),         # has its own objtype
+            ("nature",            "objtype"),         # has its own objtype
+            ("aeds",              "'aed'"),          # no objtype -> table name (singular)
+            ("theatres",          "'theatre'"),
+            ("attractions",       "'attraction'"),
+            ("police_stations",   "'police station'"),
+            ("pharmacies",        "'pharmacy'"),
+            ("stops",             "'stop'"),
+            ("bike_stations",     "'bike station'"),
+        ]
+
+        for table, objtype_expr in insert_map:
+            conn.execute(f"""
+                INSERT INTO city_obj (objtype, geom)
+                SELECT {objtype_expr}, geom
+                FROM {table}
+                WHERE geom IS NOT NULL;
+            """)
+
+
+
+        conn.execute("""
+            CREATE INDEX city_obj_geom_gix
+            ON city_obj USING GIST (geom);
+        """)
+

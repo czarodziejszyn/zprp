@@ -10,7 +10,7 @@ from api.bike_stations import fetch_bike_stations
 from api.accomodations import fetch_accommodations
 
 
-from .db import get_conn, init_db
+from .db import get_conn, init_db, create_total_city_obj_table
 
 
 async def import_aeds():
@@ -263,6 +263,8 @@ async def main():
     print(f"Imported {accommodations_count} accommodations.")
 
 
+    create_total_city_obj_table()
+    print(f"Created city_obj table.")
 
 
 if __name__ == "__main__":
