@@ -34,7 +34,6 @@ async def fetch_bike_stations(dataset_name: str, limit: int = 10):
         except httpx.ReadTimeout:
             raise HTTPException(status_code=504, detail="API request timed out")
 
-    print("Raw API response:", response.text)
 
     try:
         data = response.json()

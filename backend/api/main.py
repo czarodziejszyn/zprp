@@ -4,7 +4,7 @@ from api.police_stations import fetch_police_stations, PoliceStation
 from api.aeds import fetch_aeds, AEDs
 from api.pharmacies import fetch_pharmacies, Pharmacy
 from api.nature import fetch_nature, Nature
-from api.bicycle_stations import fetch_bike_stations, BikeStation
+from api.bike_stations import fetch_bike_stations, BikeStation
 from api.accomodations import fetch_accommodations, Accommodation
 from api.stops import fetch_stops, Stop
 from api.theatres import fetch_theatres, Theatre
