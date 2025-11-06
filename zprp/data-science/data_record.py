@@ -1,4 +1,28 @@
 class DataRecord:
-    def __init__(self, circle):
-        self.features = get_features(circle)
-        self.label = get_label()
+    ALL_FEATURES = ["stop", "bike station",
+                    "pharmacy", "aed", "attraction", "theatre", "tree", "bush", "forest", "police station", "hotel", "dorm"]
+
+    def __init__(self, lat: float, lon: float, radius: int, district: str):
+        self.features = self.get_features(lat, lon, radius)
+        self.label = self.get_label(district)
+
+    def get_features(self, lat: float, lon: float, radius: int):
+        import httpx
+        url = "http://localhost:8000/nearby"
+        params = {
+            "lat": lat,
+            "lon": lon,
+            "radius": radius
+        }
+        response = httpx.get(url, params=params)
+        data = response.json()
+
+        features = {item["objtype"]: item["count"] for item in data}
+        full_features = {ft: features.get(ft, 0) for ft in self.ALL_FEATURES}
+        return full_features
+
+    def get_label(self, district):
+        import json
+        with open("./average_cost.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data[district]
