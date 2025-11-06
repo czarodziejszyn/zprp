@@ -9,10 +9,17 @@ from api.accomodations import fetch_accommodations, Accommodation
 from api.stops import fetch_stops, Stop
 from api.theatres import fetch_theatres, Theatre
 from api.attractions import fetch_attractions, Attraction
+from db.count_objects_nearby import count_objects_nearby
 
 
 
 app = FastAPI(title="Warsaw Public Safety API")
+
+
+@app.get("/nearby")
+def nearby(lat: float, lon: float, radius: int):
+    result = count_objects_nearby(lat, lon, radius)
+    return result
 
 
 @app.get("/police_stations", response_model=list[PoliceStation])
