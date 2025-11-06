@@ -23,6 +23,10 @@ psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"
 
 Then doing SQL query, f.ex:
 SELECT street, building, latitude, longitude FROM aeds LIMIT 5;
+SELECT name, address, district, latitude, longitude FROM theatres LIMIT 5;
+
+SELECT * from attractions LIMIT 5;
+
 
 
 6. Remove backend Docker image:

@@ -31,4 +31,26 @@ def init_db():
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
             );
+
+            CREATE TABLE IF NOT EXISTS theatres (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                address TEXT,
+                district TEXT,
+                latitude DOUBLE PRECISION,
+                longitude DOUBLE PRECISION,
+                geom GEOGRAPHY(POINT, 4326)
+            );
+                     
+            CREATE TABLE IF NOT EXISTS attractions (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                address TEXT,
+                city TEXT,
+                category TEXT,
+                latitude DOUBLE PRECISION,
+                longitude DOUBLE PRECISION,
+                geom GEOGRAPHY(POINT, 4326)
+            );
+                                          
         """)

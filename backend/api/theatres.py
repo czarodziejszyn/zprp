@@ -31,7 +31,6 @@ async def fetch_theatres():
     async with httpx.AsyncClient(timeout=10, follow_redirects=True) as client:
         response = await client.get(BASE_URL, params=params)
 
-    print("RAW RESPONSE:", response.text[:200])
 
     if response.status_code != 200:
         raise HTTPException(status_code=500, detail=f"Warsaw API error: {response.status_code}")

@@ -8,7 +8,7 @@ from api.bicycle_stations import fetch_bike_stations, BikeStation
 from api.accomodations import fetch_accommodations, Accommodation
 from api.stops import fetch_stops, Stop
 from api.theatres import fetch_theatres, Theatre
-from api.tourism import fetch_attractions, Attraction
+from api.attractions import fetch_attractions, Attraction
 
 
 
