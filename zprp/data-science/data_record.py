@@ -1,5 +1,5 @@
 class DataRecord:
-    ALL_FEATURES = ["stop", "bike station",
+    ALL_FEATURES = ["lat", "lon", "stop", "bike station",
                     "pharmacy", "aed", "attraction", "theatre", "tree", "bush", "forest", "police station", "hotel", "dorm"]
 
     def __init__(self, lat: float, lon: float, radius: int, district: str):
@@ -18,6 +18,8 @@ class DataRecord:
         data = response.json()
 
         features = {item["objtype"]: item["count"] for item in data}
+        features["lat"] = lat
+        features["lon"] = lon
         full_features = {ft: features.get(ft, 0) for ft in self.ALL_FEATURES}
         return full_features
 
