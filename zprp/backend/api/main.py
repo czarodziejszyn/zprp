@@ -19,6 +19,8 @@ from model_use.run_model import calculate_prices, create_chart
 app = FastAPI(title="Warsaw Public Safety API")
 
 # Endpoint for model
+
+
 @app.get("/nearby")
 def nearby(lat: float, lon: float, radius: int):
     result = count_objects_nearby(lat, lon, radius)
@@ -43,8 +45,6 @@ def get_chart():
     file_path_str = create_chart()
     file_path = Path(file_path_str)
     return FileResponse(file_path, media_type="image/png", filename="chart.png")
-
-
 
 
 # Endpoints for database
@@ -93,14 +93,12 @@ async def get_accommodations(
     return await fetch_accommodations(dataset_name, limit=limit)
 
 
-
 @app.get("/stops", response_model=list[Stop])
 async def get_stops(limit: int = Query(10, ge=1, le=500)):
     """
     Get a list of Warsaw public transport stops (up to `limit`).
     """
     return await fetch_stops(limit=limit)
-
 
 
 @app.get("/theatres", response_model=list[Theatre])
