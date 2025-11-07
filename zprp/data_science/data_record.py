@@ -1,3 +1,6 @@
+import os
+
+
 class DataRecord:
     ALL_FEATURES = ["lat", "lon", "stop", "bike station",
                     "pharmacy", "aed", "attraction", "theatre", "tree", "bush", "forest", "police station", "hotel", "dorm"]
@@ -16,6 +19,7 @@ class DataRecord:
         }
         response = httpx.get(url, params=params)
         data = response.json()
+        print(data)
 
         features = {item["objtype"]: item["count"] for item in data}
         features["lat"] = lat
@@ -25,6 +29,8 @@ class DataRecord:
 
     def get_label(self, district):
         import json
-        with open("./average_cost.json", "r", encoding="utf-8") as f:
+        base_dir = os.path.dirname(__file__)
+        average_path = os.path.join(base_dir, "average_cost.json")
+        with open(average_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         return data[district]
