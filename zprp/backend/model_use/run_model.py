@@ -4,8 +4,8 @@ import os
 import json
 sys.path.append(os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../..")))
-from data_science import data_record
 from data_science import get_random_loc
+from data_science import data_record
 
 
 MODEL_PATH = "../../models/model.pkl"
@@ -28,7 +28,7 @@ def calculate_prices(lat: float, lon: float):
     with open(MODEL_PATH, "rb") as f:
         model = pickle.load(f)
     y_pred = model.predict([features])
-    return (y_pred, label)
+    return (float(y_pred[0]), label)
 
 
 def create_chart():
