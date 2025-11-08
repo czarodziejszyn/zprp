@@ -1,6 +1,8 @@
-from dash import callback, Output, Input, State, no_update
+from dash import callback, Output, Input, State, no_update, dcc, html
 import dash
 import httpx
+import base64
+import json as _json
 
 
 def _point_in_ring(lat: float, lon: float, ring_latlng):
@@ -119,3 +121,113 @@ def handle_click(click_latlng, dblclick_data, n_addr_clicks, addr_value, mask_ri
     return [lat, lon], 1, [lat, lon], 1, f"lat={lat:.6f}, lon={lon:.6f}", {"lat": lat, "lon": lon}
 
 
+@callback(
+    Output("modal-prices", "children"),
+    Output("modal-chart", "src"),
+    Output("prices-raw", "data"),
+    Output("chart-b64", "data"),
+    Output("analysis-modal", "style"),
+    Input("analyze-btn", "n_clicks"),
+    Input("analysis-close", "n_clicks"),
+    Input("analysis-backdrop", "n_clicks"),
+    State("clicked-point", "data"),
+    prevent_initial_call=True,
+)
+def analyze_point(analyze_clicks, close_clicks, backdrop_clicks, clicked_point):
+    ctx = dash.callback_context
+    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0] if ctx and ctx.triggered else None
+    closed = {"display": "none", "position": "fixed", "inset": 0}
+
+    if trigger_id in ("analysis-close", "analysis-backdrop"):
+        return no_update, no_update, no_update, no_update, closed
+
+    if not analyze_clicks:
+        return no_update, no_update, no_update, no_update, no_update
+
+    try:
+        if not isinstance(clicked_point, dict):
+            return "Brak punktu.", no_update, None, None, closed
+        lat = float(clicked_point.get("lat"))
+        lon = float(clicked_point.get("lon"))
+    except Exception:
+        return "Nieprawidłowe współrzędne.", no_update, None, None, closed
+
+    prices_raw = None
+    chart_b64 = None
+    chart_src = None
+    modal_prices_children = "Brak danych."
+
+    # /prices
+    try:
+        r = httpx.get("http://localhost:8000/prices", params={"lat": lat, "lon": lon}, timeout=20.0)
+        if r.status_code == 200:
+            data = r.json()
+            prices_raw = _json.dumps(data, ensure_ascii=False, indent=2)
+            pred = data.get("predicted_price")
+            real = data.get("real_price")
+            def _fmt_pln(v):
+                try:
+                    val = float(v)
+                    s = f"{val:,.0f}".replace(",", " ")
+                    return f"{s} zł"
+                except Exception:
+                    return str(v)
+            pred_txt = _fmt_pln(pred)
+            real_txt = _fmt_pln(real)
+            modal_prices_children = html.Div([
+                html.Div("Ceny", style={"fontWeight": 700, "marginBottom": 6, "fontSize": 14}),
+                html.Div([
+                    html.Div([
+                        html.Div("Prognoza", style={"fontSize": 12, "color": "#555"}),
+                        html.Div(pred_txt, style={"fontWeight": 700, "fontSize": 20}),
+                    ], style={"flex": 1, "background": "#f7f7f9", "border": "1px solid #eee", "borderRadius": "6px", "padding": "8px 10px"}),
+                    html.Div([
+                        html.Div("Rzeczywista", style={"fontSize": 12, "color": "#555"}),
+                        html.Div(real_txt, style={"fontWeight": 700, "fontSize": 20}),
+                    ], style={"flex": 1, "background": "#f7f7f9", "border": "1px solid #eee", "borderRadius": "6px", "padding": "8px 10px"}),
+                ], style={"display": "flex", "gap": 12}),
+            ])
+        else:
+            modal_prices_children = f"Błąd /prices: HTTP {r.status_code}"
+            prices_raw = modal_prices_children
+    except httpx.HTTPError as e:
+        modal_prices_children = f"Błąd połączenia z /prices: {e}"
+        prices_raw = modal_prices_children
+
+    # /chart
+    try:
+        r2 = httpx.get("http://localhost:8000/chart", timeout=20.0)
+        if r2.status_code == 200 and r2.content:
+            b64 = base64.b64encode(r2.content).decode("ascii")
+            chart_src = f"data:image/png;base64,{b64}"
+            chart_b64 = b64
+    except httpx.HTTPError:
+        pass
+
+    open_style = {
+        "display": "flex",
+        "position": "fixed",
+        "inset": 0,
+        "background": "rgba(0,0,0,0.45)",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "zIndex": 2000,
+    }
+
+    return modal_prices_children, chart_src, prices_raw, chart_b64, open_style
+
+
+@callback(
+    Output("download-chart-modal", "data"),
+    Input("download-chart-modal-btn", "n_clicks"),
+    State("chart-b64", "data"),
+    prevent_initial_call=True,
+)
+def download_chart_modal(n, b64_data):
+    if not n or not b64_data:
+        return no_update
+    try:
+        content = base64.b64decode(b64_data)
+    except Exception:
+        return no_update
+    return dcc.send_bytes(lambda buf: buf.write(content), "chart.png")
