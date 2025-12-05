@@ -116,9 +116,17 @@ for page in range(1, MAX_PAGES + 1):
             # ----------------------------
 
             try:
-                price = offer.find_element(By.XPATH, ".//span[contains(text(),'zł')]").text
-                price = price.replace(" ", "").replace("zł", "")
-                price = int(price)
+                price_text = offer.find_element(
+                    By.XPATH, ".//span[@data-sentry-element='MainPrice']"
+                ).text
+
+                price = int(
+                    price_text
+                    .replace("zł", "")
+                    .replace("\xa0", "")
+                    .replace(" ", "")
+                )
+
             except:
                 price = None
 
@@ -146,6 +154,11 @@ for page in range(1, MAX_PAGES + 1):
                     address = ""
             except:
                 address = ""
+
+
+            # Odrzucamy reklamy / inwestycje
+            if price is None or area is None:
+                continue
 
             # ----------------------------
             # PRICE / M2
