@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-# otodom_selenium_chrome.py
-# Python 3.8+
-# wymaga: pip install selenium pandas
-
 import time
 import re
 import pandas as pd
@@ -13,96 +8,75 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# ----------------------------
-# Ustawienia
-# ----------------------------
+
+
 URL = "https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie/mazowieckie/warszawa"
-DELAY = 1       # seconds
+
 MAX_PAGES = 1
-OUTPUT_CSV = "otodom_warszawa.csv"
 OUTPUT_JSON = "otodom_warszawa.json"
 
-# ----------------------------
-# ŚCIEŻKA DO CHROMEDRIVER
-# ----------------------------
+
+# CHROME PATHS 
 CHROMEDRIVER_PATH = r"C:\chromedriver\chromedriver.exe"
 CHROME_BINARY_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-# ----------------------------
-# Konfiguracja Chrome
-# ----------------------------
-# CONFIG
+
+# Chrome config
 options = Options()
 options.binary_location = CHROME_BINARY_PATH
-# options.add_argument("--headless=new") # na produkcji bedzie potrzbene to + anti detection. 
+# options.add_argument("--headless=new")    # TODO: add headless + antidetection
 options.add_argument("--disable-gpu")
 options.add_argument("--window-size=1920,1080")
 options.add_argument("--lang=pl-PL")
 
-# opens chrome directed by python
+
+# Open Chrome directed by python
 service = Service(CHROMEDRIVER_PATH)
 driver = webdriver.Chrome(service=service, options=options)
 
-# ----------------------------
-# Pobieranie ofert
-# ----------------------------
-all_offers = []
 
-# for pages
+# Get offers 
+all_offers = []
 for page in range(1, MAX_PAGES + 1):
-    page_url = f"{URL}?page={page}"     # link do kolejnych pages
-    print(f"[+] Pobieram stronę {page}: {page_url}")
+    page_url = f"{URL}?page={page}"
+    print(f"[+] Downloading page {page}: {page_url}")
     driver.get(page_url)
 
-
+    # Accept cookies
     try:
-        WebDriverWait(driver, 5).until(
+        WebDriverWait(driver, 2).until(
             EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Akceptuj')]"))
         ).click()
     except:
         pass
 
 
-
-
     try:
-        # wait 15 seconds for frist <article>
-        WebDriverWait(driver, 15).until(
+        WebDriverWait(driver, 3).until(
             EC.presence_of_element_located((By.TAG_NAME, "article"))
         )
     except:
-        print("  -> Brak ogłoszeń – koniec.")
+        print("  -> No offers found – end.")
         break
 
-    # Scroll
+
+    # Scroll to load offers
     for _ in range(4):
-        driver.execute_script("window.scrollBy(0, 1200);")  # js needs to load the offers
-        time.sleep(DELAY)
+        driver.execute_script("window.scrollBy(0, 1200);")
+        time.sleep(1)
 
-    offers = driver.find_elements(By.TAG_NAME, "article")   # gets all offers from the page
 
+    # Find offers
+    offers = driver.find_elements(By.TAG_NAME, "article")
     if not offers:
-        print("  -> Brak ofert na stronie, koniec.")
+        print("  -> No offers found – end.")
         break
-
-    # DEBUG: zapisz HTML pierwszego ogłoszenia do pliku
-    debug_html = offers[0].get_attribute("outerHTML")
-
-    with open("offer_debug.html", "w", encoding="utf-8") as f:
-        f.write(debug_html)
-
-    print("[OK] Zapisano HTML do pliku offer_debug.html")
-
-
 
 
     for offer in offers:
         try:
             full_text = offer.text
-
-            # ----------------------------
-            # URL + TITLE
-            # ----------------------------
+            # Get url, title 
             try:
                 link = offer.find_element(By.XPATH, ".//a[contains(@href,'/oferta/')]")
                 url = link.get_attribute("href")
@@ -111,10 +85,8 @@ for page in range(1, MAX_PAGES + 1):
                 url = None
                 title = ""
 
-            # ----------------------------
-            # PRICE – wyciągamy z tekstu
-            # ----------------------------
 
+            # Get price
             try:
                 price_text = offer.find_element(
                     By.XPATH, ".//span[@data-sentry-element='MainPrice']"
@@ -131,10 +103,7 @@ for page in range(1, MAX_PAGES + 1):
                 price = None
 
 
-
-            # ----------------------------
-            # AREA – też z tekstu
-            # ----------------------------
+            # Get area
             try:
                 area_match = re.search(r"(\d+[,\.]?\d*)\s*m²", full_text)
                 if area_match:
@@ -144,25 +113,21 @@ for page in range(1, MAX_PAGES + 1):
             except:
                 area = None
 
-            # ----------------------------
-            # ADDRESS – pierwsza sensowna linia
-            # ----------------------------
+
+            # Get address
             try:
-                lines = full_text.split("\n")
-                address = lines[-1]
-                if "m²" in address or "zł" in address:
-                    address = ""
+                address = offer.find_element(
+                    By.XPATH, ".//p[@data-sentry-component='Address']"
+                ).text
             except:
                 address = ""
 
 
-            # Odrzucamy reklamy / inwestycje
+            # Skipping ads / investemnts offers
             if price is None or area is None:
                 continue
 
-            # ----------------------------
-            # PRICE / M2
-            # ----------------------------
+            # Get price / m2
             price_m2 = round(price / area, 2) if price and area else None
 
             all_offers.append({
@@ -175,17 +140,14 @@ for page in range(1, MAX_PAGES + 1):
             })
 
         except Exception as e:
-            print("  ! Błąd jednej oferty:", e)
+            print("Exception in the offer:", e)
 
 driver.quit()
 
-# ----------------------------
-# Zapis do CSV
-# ----------------------------
-df = pd.DataFrame(all_offers)
-# df.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
-# print(f"[OK] Zapisano {len(all_offers)} rekordów do {OUTPUT_CSV}")
 
+
+# Write to .json file
+df = pd.DataFrame(all_offers)
 df.to_json(OUTPUT_JSON, orient="records", force_ascii=False, indent=2)
-print(f"[OK] Zapisano {len(all_offers)} rekordów do {OUTPUT_JSON}")
+print(f"[OK] Written {len(all_offers)} records to {OUTPUT_JSON}")
 
