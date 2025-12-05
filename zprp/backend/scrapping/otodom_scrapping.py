@@ -37,6 +37,7 @@ driver = webdriver.Chrome(service=service, options=options)
 
 # Get offers 
 all_offers = []
+seen_ids = set()
 for page in range(1, MAX_PAGES + 1):
     page_url = f"{URL}?page={page}"
     print(f"[+] Downloading page {page}: {page_url}")
@@ -60,12 +61,6 @@ for page in range(1, MAX_PAGES + 1):
         break
 
 
-    # Scroll to load offers
-    for _ in range(4):
-        driver.execute_script("window.scrollBy(0, 1200);")
-        time.sleep(1)
-
-
     # Find offers
     offers = driver.find_elements(By.TAG_NAME, "article")
     if not offers:
@@ -76,13 +71,24 @@ for page in range(1, MAX_PAGES + 1):
     for offer in offers:
         try:
             full_text = offer.text
-            # Get url, title 
+
+            # Get url 
             try:
                 link = offer.find_element(By.XPATH, ".//a[contains(@href,'/oferta/')]")
                 url = link.get_attribute("href")
+                offer_id = url.split("-")[-1]
+            except Exception as e:
+                print("Exception in the offer - url not found:", e)
+
+            # Skip duplicates
+            if offer_id in seen_ids:
+                continue
+            seen_ids.add(offer_id)
+
+            # Get title
+            try:
                 title = url.split("/")[-1].replace("-", " ")
             except:
-                url = None
                 title = ""
 
 
