@@ -6,6 +6,9 @@ def get_street_coord(street_address):
     base_url = "https://nominatim.openstreetmap.org/search"
     query = street_address
 
+    if query[:3] in ('ul.', 'al.'):
+        query = query[4:]
+
     params = {
         'q': query,
         'format': 'json',
@@ -30,7 +33,6 @@ def get_street_coord(street_address):
         result = data[0]
         lat = float(result['lat'])
         lon = float(result['lon'])
-        time.sleep(1)
         return (lat, lon)
     
 
@@ -40,6 +42,6 @@ def get_street_coord(street_address):
     
     
 if __name__ == "__main__":
-    offer = {"address":"al. Aleja \"Solidarności\", Mirów, Wola, Warszawa, mazowieckie"}
+    offer = {"address":"gen. Tadeusza Pełczyńskiego, Górce, Bemowo, Warszawa, mazowieckie"}
     coord = get_street_coord(offer["address"])
     print(coord)
