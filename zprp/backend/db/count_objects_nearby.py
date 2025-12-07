@@ -20,15 +20,3 @@ def count_objects_nearby(lat: float, lon: float, radius_meters: int):
             radius_meters
         )).fetchall() 
     return rows
-
-
-
-
-# if __name__ == '__main__':
-#     # zlote tarasy
-#     lat = 52.22977
-#     lon = 21.00193
-#     radius_meters = 200     # 200 m
-
-#     rows = count_objects_nearby(lat, lon, radius_meters)
-#     print(rows)

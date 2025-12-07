@@ -12,18 +12,22 @@ from api.stops import fetch_stops, Stop
 from api.theatres import fetch_theatres, Theatre
 from api.attractions import fetch_attractions, Attraction
 from db.count_objects_nearby import count_objects_nearby
-
+from db.get_avg_real_price import get_avg_real_price
 from model_use.run_model import calculate_prices, create_chart
 
 
 app = FastAPI(title="Warsaw Public Safety API")
 
-# Endpoint for model
-
+# Endpoints for model
 
 @app.get("/nearby")
 def nearby(lat: float, lon: float, radius: int):
     result = count_objects_nearby(lat, lon, radius)
+    return result
+
+@app.get("/real_price")
+def real_price(lat: float, lon: float, radius: int = 10):
+    result = get_avg_real_price(lat, lon, radius)
     return result
 
 
