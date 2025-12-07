@@ -1,9 +1,11 @@
 import requests
-import time
+
+from config import NOMINATIM_URL
+
 
 
 def get_street_coord(street_address):
-    base_url = "https://nominatim.openstreetmap.org/search"
+    
     query = street_address
 
     if query[:3] in ('ul.', 'al.'):
@@ -22,7 +24,7 @@ def get_street_coord(street_address):
 
 
     try:
-        response = requests.get(base_url, params=params, headers=headers)
+        response = requests.get(NOMINATIM_URL, params=params, headers=headers)
         response.raise_for_status()
         data = response.json()
         
@@ -40,8 +42,3 @@ def get_street_coord(street_address):
         print(f"Geocoding exception: {e}")
         return None
     
-    
-if __name__ == "__main__":
-    offer = {"address":"gen. Tadeusza Pełczyńskiego, Górce, Bemowo, Warszawa, mazowieckie"}
-    coord = get_street_coord(offer["address"])
-    print(coord)

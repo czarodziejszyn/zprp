@@ -1,6 +1,7 @@
-import time
+import os
 import re
 import pandas as pd
+import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -9,19 +10,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from geocoding import get_street_coord
-
-URL = "https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie/mazowieckie/warszawa"
-
-MAX_PAGES = 1
-OUTPUT_JSON = "otodom_warszawa.json"
+from config import OTODOM_URL, CHROME_BINARY_PATH, CHROMEDRIVER_PATH
 
 
-# CHROME PATHS 
-CHROMEDRIVER_PATH = r"C:\chromedriver\chromedriver.exe"
-CHROME_BINARY_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-
-def get_offers():
+def scrap_offers(max_offer_pages):
     # Chrome config
     options = Options()
     options.binary_location = CHROME_BINARY_PATH
@@ -39,8 +32,8 @@ def get_offers():
     # Get offers 
     all_offers = []
     seen_ids = set()
-    for page in range(1, MAX_PAGES + 1):
-        page_url = f"{URL}?page={page}"
+    for page in range(1, max_offer_pages + 1):
+        page_url = f"{OTODOM_URL}?page={page}"
         print(f"[+] Downloading page {page}: {page_url}")
         driver.get(page_url)
 
@@ -138,8 +131,6 @@ def get_offers():
                 if address is None:
                     continue
 
-                
-
 
                 # Get price / m2
                 price_m2 = round(price / area, 2) if price and area else None
@@ -173,12 +164,11 @@ def get_offers():
     return all_offers
 
 
+def write_offers_to_json(offers_dict, file_path):
+    df = pd.DataFrame(offers_dict)
+    df.to_json(file_path, orient="records", force_ascii=False, indent=2)
+    print(f"[OK] Written {len(offers_dict)} records to {file_path}")
 
+    
 
-if __name__ == "__main__":
-    # Write to .json file
-    all_offers = get_offers()
-    df = pd.DataFrame(all_offers)
-    df.to_json(OUTPUT_JSON, orient="records", force_ascii=False, indent=2)
-    print(f"[OK] Written {len(all_offers)} records to {OUTPUT_JSON}")
 

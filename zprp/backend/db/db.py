@@ -115,7 +115,21 @@ def init_db():
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
             );
-                     
+
+
+            CREATE TABLE IF NOT EXISTS offers (
+                id SERIAL PRIMARY KEY,
+                title TEXT,
+                url TEXT,
+                price INTEGER,
+                area_m2 NUMERIC,
+                price_per_m2 NUMERIC,
+                address TEXT,    
+                latitude DOUBLE PRECISION,
+                longitude DOUBLE PRECISION,
+                geom GEOGRAPHY(POINT, 4326)
+            );
+                                      
 
         """)
 

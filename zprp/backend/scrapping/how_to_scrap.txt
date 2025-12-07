@@ -1,9 +1,0 @@
-1) 
-Get chrome browser. 
-Change CHROME_BINARY_PATH to your location of chrome.exe. 
-
-2) 
-Get Chrome driver, from:
-https://googlechromelabs.github.io/chrome-for-testing/#stable
-
-Set CHROMEDRIVER_PATH to your location of chrome driver.

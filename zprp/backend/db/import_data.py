@@ -1,4 +1,6 @@
 import asyncio
+import json
+import os
 from api.aeds import fetch_aeds
 from api.theatres import fetch_theatres
 from api.attractions import fetch_attractions
@@ -9,8 +11,41 @@ from api.stops import fetch_stops
 from api.bike_stations import fetch_bike_stations
 from api.accomodations import fetch_accommodations
 
-
 from .db import get_conn, init_db, create_total_city_obj_table
+
+
+
+OFFERS_JSON_PATH = os.getenv("OFFERS_JSON_PATH")
+
+
+
+def import_offers():
+    with open(OFFERS_JSON_PATH, "r", encoding="utf-8") as handler:
+        offers = json.load(handler)
+
+
+    with get_conn() as conn:
+        for o in offers:
+            conn.execute("""
+                INSERT INTO offers (title, url, price, area_m2, price_per_m2, address, latitude, longitude, geom)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
+                ON CONFLICT DO NOTHING;
+            """, (
+                o.title,
+                o.url,
+                o.price,
+                o.area_m2,
+                o.price_per_m2,
+                o.address,
+                o.latitude,
+                o.longitude,
+                o.longitude,  # POINT(lon, lat)
+                o.latitude
+            ))
+
+    return len(offers)
+
+
 
 
 async def import_aeds():
@@ -224,6 +259,10 @@ async def import_accommodations():
 
 async def main():
     init_db()
+
+    # Offers
+    offers_count = import_offers()
+    print(f"Imported {offers_count} offers from otodom into PostgreSQL.")
 
     # AEDs
     aeds_count = await import_aeds()

@@ -1,5 +1,5 @@
 1) 
-Get chrome browser. 
+Get chrome / chromium browser. 
 Change CHROME_BINARY_PATH to your location of chrome.exe. 
 
 2) 
@@ -7,3 +7,15 @@ Get Chrome driver, from:
 https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 Set CHROMEDRIVER_PATH to your location of chrome driver.
+
+
+3) 
+# Run scrapping
+```bash
+cd zprp/backend/scraper
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python main.py
+```
+
