@@ -1,3 +1,5 @@
+0. Do scraper/how_to_scrap.txt instructions. Move otodom_warszawa.json to /backend directory. 
+
 1. Log into Warszawa API: https://api.um.warszawa.pl/
 Read your assigned API KEY.
 
@@ -16,6 +18,7 @@ After starting backend Docker image, run:
 
 docker compose exec api bash
 python -m db.import_data
+
 
 
 
@@ -57,7 +60,11 @@ Chart:
 
 
 
+7.  Check offer table:
+docker compose exec db bash
+psql -U $POSTGRES_USER -d $POSTGRES_DB
+SELECT * FROM offers;
+exit
 
-
-7. Remove backend Docker image:
+8. Remove backend Docker image:
 docker compose down -v --remove-orphans

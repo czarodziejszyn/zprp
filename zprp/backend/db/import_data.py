@@ -31,16 +31,16 @@ def import_offers():
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, ST_SetSRID(ST_MakePoint(%s, %s), 4326))
                 ON CONFLICT DO NOTHING;
             """, (
-                o.title,
-                o.url,
-                o.price,
-                o.area_m2,
-                o.price_per_m2,
-                o.address,
-                o.latitude,
-                o.longitude,
-                o.longitude,  # POINT(lon, lat)
-                o.latitude
+                o["title"],
+                o["url"],
+                o["price"],
+                o["area_m2"],
+                o["price_per_m2"],
+                o["address"],
+                o["latitude"],
+                o["longitude"],
+                o["longitude"],  # POINT(lon, lat)
+                o["latitude"]
             ))
 
     return len(offers)
