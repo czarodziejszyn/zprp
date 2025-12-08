@@ -1,4 +1,5 @@
 import re
+import os
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,8 +8,12 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# from geocoding import get_street_coord
-from config import OTODOM_URL, CHROME_BINARY_PATH, CHROMEDRIVER_PATH
+
+
+OTODOM_URL = os.getenv("OTODOM_URL")
+CHROME_BINARY_PATH = os.getenv("CHROME_BINARY_PATH")
+CHROMEDRIVER_PATH = os.getenv("CHROMEDRIVER_PATH")
+
 
 
 
@@ -16,11 +21,14 @@ def scrap_offers(max_offer_pages):
     # Chrome config
     options = Options()
     options.binary_location = CHROME_BINARY_PATH
-    # options.add_argument("--headless=new")    # TODO: add headless + antidetection
+
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--lang=pl-PL")
 
+    # options for docker
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
     # Open Chrome directed by python
     service = Service(CHROMEDRIVER_PATH)

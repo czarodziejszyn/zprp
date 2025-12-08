@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  scraper:
+    build: .
+    container_name: selenium_scraper
+    volumes:
+      - .:/app
+    env_file:
+      - .env        
+    environment:
+      - DISPLAY=:99
+    shm_size: '2gb'   
