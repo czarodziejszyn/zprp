@@ -1,4 +1,3 @@
-NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 OTODOM_URL = "https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie/mazowieckie/warszawa"
 
 OFFERS_JSON_PATH = r"otodom_warszawa.json"

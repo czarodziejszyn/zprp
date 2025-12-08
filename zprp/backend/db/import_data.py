@@ -15,12 +15,12 @@ from .db import get_conn, init_db, create_total_city_obj_table
 
 
 
-OFFERS_JSON_PATH = os.getenv("OFFERS_JSON_PATH")
+GEOCODED_OFFERS_JSON_PATH = os.getenv("GEOCODED_OFFERS_JSON_PATH")
 
 
 
 def import_offers():
-    with open(OFFERS_JSON_PATH, "r", encoding="utf-8") as handler:
+    with open(GEOCODED_OFFERS_JSON_PATH, "r", encoding="utf-8") as handler:
         offers = json.load(handler)
 
 

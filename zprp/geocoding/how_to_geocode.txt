@@ -1,0 +1,37 @@
+1. move .json with scrapped offers to geocoding directory
+
+# Setting up Nominativ server:
+2. log in to the docker in terminal: (you need to have docker account) 
+docker login
+
+
+3. 
+Run:
+
+docker run -d -p 6080:8080 -e NOMINATIM_PBF_URL="https://download.bbbike.org/osm/bbbike/Warsaw/Warsaw.osm.pbf" -e POSTGRES_PASSWORD="haslo" --name nominatim-warsaw peterevans/nominatim:latest
+
+And observe the logs:
+docker logs -f nominatim-warsaw
+
+
+Setup should take around 20-30min. 
+
+After it is finished, you have Nominativ server ready at:
+http://localhost:6080/ 
+
+
+4. To stop / start anew:
+docker stop nominatim-warsaw
+docker start nominatim-warsaw
+
+DO NOT delete an image, as it will have to go through the setup again.
+
+
+
+# Run gecoding:
+
+cd zprp/geocoding
+python -m venv .venv
+.venv/Scripts/activate
+pip install -r requirements.txt
+python geocoding.py

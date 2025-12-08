@@ -1,4 +1,9 @@
-0. Do scraper/how_to_scrap.txt instructions. Move otodom_warszawa.json to /backend directory. 
+0. 
+Do scraper/how_to_scrap.txt instructions. 
+Do geocoding/how_to_geocode.txt instructions.
+
+Move geocoded_otodom_warszawa.json to /backend directory. 
+
 
 1. Log into Warszawa API: https://api.um.warszawa.pl/
 Read your assigned API KEY.

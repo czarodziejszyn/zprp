@@ -1,7 +1,5 @@
-import os
 import re
 import pandas as pd
-import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -9,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from geocoding import get_street_coord
+# from geocoding import get_street_coord
 from config import OTODOM_URL, CHROME_BINARY_PATH, CHROMEDRIVER_PATH
 
 
@@ -135,25 +133,13 @@ def scrap_offers(max_offer_pages):
                 # Get price / m2
                 price_m2 = round(price / area, 2) if price and area else None
 
-
-                # Get coordinates
-                coords = get_street_coord(address)
-                # Skip offers where geocoding was not successful
-                if not coords:
-                    continue
-
-                lat, lon = coords
-
-
                 all_offers.append({
                     "title": title,
                     "url": url,
                     "price": price,
                     "area_m2": area,
                     "price_per_m2": price_m2,
-                    "address": address,
-                    "latitude": lat,
-                    "longitude": lon
+                    "address": address
                 })
 
 
@@ -164,10 +150,10 @@ def scrap_offers(max_offer_pages):
     return all_offers
 
 
-def write_offers_to_json(offers_dict, file_path):
-    df = pd.DataFrame(offers_dict)
+def write_offers_to_json(offers, file_path):
+    df = pd.DataFrame(offers)
     df.to_json(file_path, orient="records", force_ascii=False, indent=2)
-    print(f"[OK] Written {len(offers_dict)} records to {file_path}")
+    print(f"[OK] Written {len(offers)} records to {file_path}")
 
     
 
