@@ -1,10 +1,13 @@
 
 import json
+import os
 import pandas as pd
-from config import NOMINATIM_DOMAIN, OFFERS_JSON_PATH, GEOCODED_OFFERS_JSON_PATH
 from geopy.geocoders import Nominatim
 
 
+NOMINATIM_DOMAIN = os.getenv("NOMINATIM_DOMAIN")
+OFFERS_JSON_PATH = os.getenv("OFFERS_JSON_PATH")
+GEOCODED_OFFERS_JSON_PATH = os.getenv("GEOCODED_OFFERS_JSON_PATH")
 
 geolocator = Nominatim(user_agent="my_app", scheme="http", domain=NOMINATIM_DOMAIN)
 
