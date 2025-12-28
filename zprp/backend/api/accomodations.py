@@ -2,12 +2,13 @@ from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import httpx
 import os
+import asyncio
 
 from .fetch_warsaw_api import WarsawApiObj, get_warsaw_api_obj_data_result
 
 
 
-async def fetch_accommodations(dataset_name: str):
+async def fetch_accommodation(dataset_name: str):
     result = await get_warsaw_api_obj_data_result(dataset_name)
 
     feature_list = result.get("featureMemberList", [])
@@ -25,3 +26,10 @@ async def fetch_accommodations(dataset_name: str):
         ))
 
     return accommodations
+
+
+
+async def fetch_accommodations():
+    hotels = await fetch_accommodation("hotel")
+    dorms = await fetch_accommodation("dorm")
+    return hotels + dorms

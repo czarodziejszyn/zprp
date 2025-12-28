@@ -5470,1514 +5470,1508 @@
       "longitude": 21.0138855
     }
   ],
-  "nature": {
-    "tree": [
-      {
-        "objtype": "tree",
-        "latitude": 52.246262,
-        "longitude": 21.000708
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246412,
-        "longitude": 21.000492
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246549,
-        "longitude": 21.000583
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246332,
-        "longitude": 21.000261
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246387,
-        "longitude": 21.000234
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246451,
-        "longitude": 21.000203
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246462,
-        "longitude": 21.000281
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246518,
-        "longitude": 21.000176
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246575,
-        "longitude": 21.000154
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246631,
-        "longitude": 21.000129
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246691,
-        "longitude": 21.000101
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246718,
-        "longitude": 21.000146
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246743,
-        "longitude": 21.000344
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246843,
-        "longitude": 21.000276
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246887,
-        "longitude": 21.000492
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246869,
-        "longitude": 21.00061
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246858,
-        "longitude": 21.000666
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246668,
-        "longitude": 21.000628
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246894,
-        "longitude": 21.00077
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246873,
-        "longitude": 21.000883
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246831,
-        "longitude": 21.000774
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24679,
-        "longitude": 21.000949
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246747,
-        "longitude": 21.000924
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24672,
-        "longitude": 21.000789
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.260357,
-        "longitude": 21.036119
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246628,
-        "longitude": 21.001047
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246487,
-        "longitude": 21.001074
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246477,
-        "longitude": 21.001127
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246399,
-        "longitude": 21.001221
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246883,
-        "longitude": 21.000084
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246848,
-        "longitude": 21.000032
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.2469,
-        "longitude": 21.000006
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.246955,
-        "longitude": 20.999985
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247004,
-        "longitude": 20.999957
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247103,
-        "longitude": 20.99999
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247195,
-        "longitude": 20.999879
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247222,
-        "longitude": 21.000121
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247269,
-        "longitude": 20.99988
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247279,
-        "longitude": 20.999955
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247332,
-        "longitude": 20.999916
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247425,
-        "longitude": 20.99977
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247514,
-        "longitude": 20.99975
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247543,
-        "longitude": 20.999829
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247498,
-        "longitude": 20.999821
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247457,
-        "longitude": 20.999858
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247497,
-        "longitude": 20.999945
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247532,
-        "longitude": 21.000026
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247557,
-        "longitude": 20.999971
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247573,
-        "longitude": 20.99991
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247613,
-        "longitude": 21.000019
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247576,
-        "longitude": 21.000053
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247649,
-        "longitude": 21.000103
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247628,
-        "longitude": 21.000196
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24771,
-        "longitude": 21.000275
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24768,
-        "longitude": 21.000358
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24763,
-        "longitude": 21.000405
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247621,
-        "longitude": 21.000342
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247568,
-        "longitude": 21.00026
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247373,
-        "longitude": 21.000274
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247347,
-        "longitude": 21.000182
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24726,
-        "longitude": 21.000267
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247435,
-        "longitude": 21.000397
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247353,
-        "longitude": 21.000462
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247311,
-        "longitude": 21.0005
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247267,
-        "longitude": 21.000538
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247217,
-        "longitude": 21.000581
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247153,
-        "longitude": 21.000647
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.2478,
-        "longitude": 21.000178
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247766,
-        "longitude": 21.00009
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247696,
-        "longitude": 20.999907
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247661,
-        "longitude": 20.999817
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247628,
-        "longitude": 20.999724
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247707,
-        "longitude": 20.999707
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247712,
-        "longitude": 20.999806
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247743,
-        "longitude": 20.999883
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247785,
-        "longitude": 20.999856
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247804,
-        "longitude": 20.999924
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24783,
-        "longitude": 21.00002
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247839,
-        "longitude": 21.000101
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247859,
-        "longitude": 21.000176
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247766,
-        "longitude": 20.999768
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24778,
-        "longitude": 20.999692
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247815,
-        "longitude": 20.999755
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247841,
-        "longitude": 20.999679
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247865,
-        "longitude": 20.999751
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247868,
-        "longitude": 20.999879
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247916,
-        "longitude": 20.999898
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247902,
-        "longitude": 21.000068
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247981,
-        "longitude": 21.00005
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.248048,
-        "longitude": 20.99998
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247991,
-        "longitude": 20.999882
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24794,
-        "longitude": 20.999773
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247905,
-        "longitude": 20.999662
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.247967,
-        "longitude": 20.999649
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.248003,
-        "longitude": 20.999774
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24807,
-        "longitude": 20.999854
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.248116,
-        "longitude": 20.999899
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.248186,
-        "longitude": 20.999848
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.248162,
-        "longitude": 20.999752
-      },
-      {
-        "objtype": "tree",
-        "latitude": 52.24812,
-        "longitude": 20.999697
-      }
-    ],
-    "bush": [
-      {
-        "objtype": "bush",
-        "latitude": 52.250876,
-        "longitude": 21.030386
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.250885,
-        "longitude": 21.030401
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258991,
-        "longitude": 21.058278
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259002,
-        "longitude": 21.058238
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25891,
-        "longitude": 21.058425
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258847,
-        "longitude": 21.058381
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25997,
-        "longitude": 21.057507
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.260061,
-        "longitude": 21.057445
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.260023,
-        "longitude": 21.057267
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259926,
-        "longitude": 21.057301
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258955,
-        "longitude": 21.058103
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258919,
-        "longitude": 21.058103
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258876,
-        "longitude": 21.058017
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258834,
-        "longitude": 21.058162
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252806,
-        "longitude": 21.051246
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253347,
-        "longitude": 21.053601
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253632,
-        "longitude": 21.054387
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252291,
-        "longitude": 21.046408
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252397,
-        "longitude": 21.046522
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252407,
-        "longitude": 21.046582
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25238,
-        "longitude": 21.046567
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252426,
-        "longitude": 21.046701
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252452,
-        "longitude": 21.046774
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252797,
-        "longitude": 21.048338
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252964,
-        "longitude": 21.048488
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.252978,
-        "longitude": 21.048559
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253296,
-        "longitude": 21.050495
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253332,
-        "longitude": 21.050465
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253618,
-        "longitude": 21.050744
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253611,
-        "longitude": 21.050788
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.266624,
-        "longitude": 20.977741
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253619,
-        "longitude": 21.050831
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253629,
-        "longitude": 21.050816
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253654,
-        "longitude": 21.050887
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253682,
-        "longitude": 21.050978
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25369,
-        "longitude": 21.051004
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253689,
-        "longitude": 21.051047
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.2537,
-        "longitude": 21.05108
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253718,
-        "longitude": 21.05111
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.253734,
-        "longitude": 21.051139
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.287568,
-        "longitude": 21.006258
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.287505,
-        "longitude": 21.006461
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288104,
-        "longitude": 21.005784
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288078,
-        "longitude": 21.00579
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288062,
-        "longitude": 21.005745
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288062,
-        "longitude": 21.005716
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.28808,
-        "longitude": 21.005672
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288098,
-        "longitude": 21.005672
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.288107,
-        "longitude": 21.005701
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.280045,
-        "longitude": 21.011576
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.278729,
-        "longitude": 21.01468
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.278639,
-        "longitude": 21.01474
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.27861,
-        "longitude": 21.014738
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.278588,
-        "longitude": 21.01477
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.276942,
-        "longitude": 21.01433
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.276993,
-        "longitude": 21.014241
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.277028,
-        "longitude": 21.014214
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.277055,
-        "longitude": 21.014379
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.277141,
-        "longitude": 21.01477
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.277241,
-        "longitude": 21.014707
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.277263,
-        "longitude": 21.014693
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279216,
-        "longitude": 21.012911
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279542,
-        "longitude": 21.012714
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279567,
-        "longitude": 21.012699
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279585,
-        "longitude": 21.012689
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279611,
-        "longitude": 21.012675
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.279631,
-        "longitude": 21.01266
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.280341,
-        "longitude": 21.012236
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.28052,
-        "longitude": 21.012299
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.280524,
-        "longitude": 21.012315
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.280539,
-        "longitude": 21.012397
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.280566,
-        "longitude": 21.012502
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.278578,
-        "longitude": 21.013453
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.260383,
-        "longitude": 21.06014
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.262236,
-        "longitude": 21.056598
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259842,
-        "longitude": 21.054643
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259504,
-        "longitude": 21.055467
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259509,
-        "longitude": 21.055486
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259537,
-        "longitude": 21.055586
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.259552,
-        "longitude": 21.055645
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.26096,
-        "longitude": 21.060597
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.257129,
-        "longitude": 21.053239
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258678,
-        "longitude": 21.053371
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.258728,
-        "longitude": 21.053199
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255662,
-        "longitude": 21.041154
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255652,
-        "longitude": 21.041117
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255601,
-        "longitude": 21.04108
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255592,
-        "longitude": 21.04108
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255592,
-        "longitude": 21.041051
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255583,
-        "longitude": 21.040992
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255556,
-        "longitude": 21.040948
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255538,
-        "longitude": 21.040904
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255538,
-        "longitude": 21.040875
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25552,
-        "longitude": 21.040861
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.25543,
-        "longitude": 21.040626
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255412,
-        "longitude": 21.040582
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255403,
-        "longitude": 21.040553
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.255394,
-        "longitude": 21.040525
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.257665,
-        "longitude": 21.047224
-      },
-      {
-        "objtype": "bush",
-        "latitude": 52.257678,
-        "longitude": 21.047275
-      }
-    ],
-    "forest": [
-      {
-        "objtype": "forest",
-        "latitude": 52.3456,
-        "longitude": 20.990755
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345551,
-        "longitude": 20.990801
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345368,
-        "longitude": 20.990673
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345146,
-        "longitude": 20.990529
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34485,
-        "longitude": 20.990337
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344837,
-        "longitude": 20.990328
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344409,
-        "longitude": 20.990022
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344563,
-        "longitude": 20.989482
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344719,
-        "longitude": 20.988933
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345131,
-        "longitude": 20.989038
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345743,
-        "longitude": 20.989194
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345701,
-        "longitude": 20.989628
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.345653,
-        "longitude": 20.99011
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.3456,
-        "longitude": 20.990755
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344623,
-        "longitude": 20.988916
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344325,
-        "longitude": 20.989962
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344075,
-        "longitude": 20.989789
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344345,
-        "longitude": 20.988847
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.344623,
-        "longitude": 20.988916
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352621,
-        "longitude": 20.989185
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352376,
-        "longitude": 20.990036
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350538,
-        "longitude": 20.991561
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349705,
-        "longitude": 20.992251
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348947,
-        "longitude": 20.99288
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348171,
-        "longitude": 20.992904
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348024,
-        "longitude": 20.992787
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348389,
-        "longitude": 20.992769
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348841,
-        "longitude": 20.992611
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349014,
-        "longitude": 20.992536
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349703,
-        "longitude": 20.992021
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349904,
-        "longitude": 20.99187
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350338,
-        "longitude": 20.991458
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350719,
-        "longitude": 20.991092
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351299,
-        "longitude": 20.990577
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351448,
-        "longitude": 20.990394
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351627,
-        "longitude": 20.990061
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351811,
-        "longitude": 20.989758
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351938,
-        "longitude": 20.989588
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352123,
-        "longitude": 20.989411
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352621,
-        "longitude": 20.989185
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351699,
-        "longitude": 20.989861
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351605,
-        "longitude": 20.990019
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351424,
-        "longitude": 20.99035
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351281,
-        "longitude": 20.990524
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350697,
-        "longitude": 20.99103
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350275,
-        "longitude": 20.991425
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349877,
-        "longitude": 20.991789
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349707,
-        "longitude": 20.991945
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349525,
-        "longitude": 20.992108
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349377,
-        "longitude": 20.992202
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348829,
-        "longitude": 20.99255
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34839,
-        "longitude": 20.992713
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347999,
-        "longitude": 20.992733
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347681,
-        "longitude": 20.992475
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34851,
-        "longitude": 20.992468
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349052,
-        "longitude": 20.992033
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349555,
-        "longitude": 20.991629
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349757,
-        "longitude": 20.991478
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34999,
-        "longitude": 20.991281
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351555,
-        "longitude": 20.989975
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351699,
-        "longitude": 20.989861
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352376,
-        "longitude": 20.990036
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.351998,
-        "longitude": 20.99135
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350767,
-        "longitude": 20.99488
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350509,
-        "longitude": 20.99463
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349823,
-        "longitude": 20.994137
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349669,
-        "longitude": 20.993979
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349423,
-        "longitude": 20.993825
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349044,
-        "longitude": 20.993545
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348795,
-        "longitude": 20.993405
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348562,
-        "longitude": 20.993196
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348396,
-        "longitude": 20.993081
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348171,
-        "longitude": 20.992904
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.348947,
-        "longitude": 20.99288
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.349705,
-        "longitude": 20.992251
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.350538,
-        "longitude": 20.991561
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.352376,
-        "longitude": 20.990036
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34768,
-        "longitude": 21.000987
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347437,
-        "longitude": 21.001412
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347323,
-        "longitude": 21.001616
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347145,
-        "longitude": 21.001879
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346876,
-        "longitude": 21.001166
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346739,
-        "longitude": 21.00077
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346561,
-        "longitude": 21.000304
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346765,
-        "longitude": 21.000103
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346892,
-        "longitude": 20.999878
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347143,
-        "longitude": 21.000235
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347341,
-        "longitude": 21.000515
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34768,
-        "longitude": 21.000987
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347506,
-        "longitude": 20.998717
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347346,
-        "longitude": 20.999024
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347232,
-        "longitude": 20.999241
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.347095,
-        "longitude": 20.999057
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346964,
-        "longitude": 20.998883
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346699,
-        "longitude": 20.998512
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346441,
-        "longitude": 20.998995
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34615,
-        "longitude": 20.998581
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346445,
-        "longitude": 20.998159
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.346474,
-        "longitude": 20.998117
-      },
-      {
-        "objtype": "forest",
-        "latitude": 52.34654,
-        "longitude": 20.997972
-      }
-    ]
-  },
+  "nature": [
+    {
+      "objtype": "tree",
+      "latitude": 52.246262,
+      "longitude": 21.000708
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246412,
+      "longitude": 21.000492
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246549,
+      "longitude": 21.000583
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246332,
+      "longitude": 21.000261
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246387,
+      "longitude": 21.000234
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246451,
+      "longitude": 21.000203
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246462,
+      "longitude": 21.000281
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246518,
+      "longitude": 21.000176
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246575,
+      "longitude": 21.000154
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246631,
+      "longitude": 21.000129
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246691,
+      "longitude": 21.000101
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246718,
+      "longitude": 21.000146
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246743,
+      "longitude": 21.000344
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246843,
+      "longitude": 21.000276
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246887,
+      "longitude": 21.000492
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246869,
+      "longitude": 21.00061
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246858,
+      "longitude": 21.000666
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246668,
+      "longitude": 21.000628
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246894,
+      "longitude": 21.00077
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246873,
+      "longitude": 21.000883
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246831,
+      "longitude": 21.000774
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24679,
+      "longitude": 21.000949
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246747,
+      "longitude": 21.000924
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24672,
+      "longitude": 21.000789
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.260357,
+      "longitude": 21.036119
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246628,
+      "longitude": 21.001047
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246487,
+      "longitude": 21.001074
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246477,
+      "longitude": 21.001127
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246399,
+      "longitude": 21.001221
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246883,
+      "longitude": 21.000084
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246848,
+      "longitude": 21.000032
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.2469,
+      "longitude": 21.000006
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.246955,
+      "longitude": 20.999985
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247004,
+      "longitude": 20.999957
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247103,
+      "longitude": 20.99999
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247195,
+      "longitude": 20.999879
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247222,
+      "longitude": 21.000121
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247269,
+      "longitude": 20.99988
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247279,
+      "longitude": 20.999955
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247332,
+      "longitude": 20.999916
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247425,
+      "longitude": 20.99977
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247514,
+      "longitude": 20.99975
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247543,
+      "longitude": 20.999829
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247498,
+      "longitude": 20.999821
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247457,
+      "longitude": 20.999858
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247497,
+      "longitude": 20.999945
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247532,
+      "longitude": 21.000026
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247557,
+      "longitude": 20.999971
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247573,
+      "longitude": 20.99991
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247613,
+      "longitude": 21.000019
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247576,
+      "longitude": 21.000053
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247649,
+      "longitude": 21.000103
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247628,
+      "longitude": 21.000196
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24771,
+      "longitude": 21.000275
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24768,
+      "longitude": 21.000358
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24763,
+      "longitude": 21.000405
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247621,
+      "longitude": 21.000342
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247568,
+      "longitude": 21.00026
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247373,
+      "longitude": 21.000274
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247347,
+      "longitude": 21.000182
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24726,
+      "longitude": 21.000267
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247435,
+      "longitude": 21.000397
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247353,
+      "longitude": 21.000462
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247311,
+      "longitude": 21.0005
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247267,
+      "longitude": 21.000538
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247217,
+      "longitude": 21.000581
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247153,
+      "longitude": 21.000647
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.2478,
+      "longitude": 21.000178
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247766,
+      "longitude": 21.00009
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247696,
+      "longitude": 20.999907
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247661,
+      "longitude": 20.999817
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247628,
+      "longitude": 20.999724
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247707,
+      "longitude": 20.999707
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247712,
+      "longitude": 20.999806
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247743,
+      "longitude": 20.999883
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247785,
+      "longitude": 20.999856
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247804,
+      "longitude": 20.999924
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24783,
+      "longitude": 21.00002
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247839,
+      "longitude": 21.000101
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247859,
+      "longitude": 21.000176
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247766,
+      "longitude": 20.999768
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24778,
+      "longitude": 20.999692
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247815,
+      "longitude": 20.999755
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247841,
+      "longitude": 20.999679
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247865,
+      "longitude": 20.999751
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247868,
+      "longitude": 20.999879
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247916,
+      "longitude": 20.999898
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247902,
+      "longitude": 21.000068
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247981,
+      "longitude": 21.00005
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.248048,
+      "longitude": 20.99998
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247991,
+      "longitude": 20.999882
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24794,
+      "longitude": 20.999773
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247905,
+      "longitude": 20.999662
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.247967,
+      "longitude": 20.999649
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.248003,
+      "longitude": 20.999774
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24807,
+      "longitude": 20.999854
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.248116,
+      "longitude": 20.999899
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.248186,
+      "longitude": 20.999848
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.248162,
+      "longitude": 20.999752
+    },
+    {
+      "objtype": "tree",
+      "latitude": 52.24812,
+      "longitude": 20.999697
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.250876,
+      "longitude": 21.030386
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.250885,
+      "longitude": 21.030401
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258991,
+      "longitude": 21.058278
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259002,
+      "longitude": 21.058238
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25891,
+      "longitude": 21.058425
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258847,
+      "longitude": 21.058381
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25997,
+      "longitude": 21.057507
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.260061,
+      "longitude": 21.057445
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.260023,
+      "longitude": 21.057267
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259926,
+      "longitude": 21.057301
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258955,
+      "longitude": 21.058103
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258919,
+      "longitude": 21.058103
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258876,
+      "longitude": 21.058017
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258834,
+      "longitude": 21.058162
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252806,
+      "longitude": 21.051246
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253347,
+      "longitude": 21.053601
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253632,
+      "longitude": 21.054387
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252291,
+      "longitude": 21.046408
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252397,
+      "longitude": 21.046522
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252407,
+      "longitude": 21.046582
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25238,
+      "longitude": 21.046567
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252426,
+      "longitude": 21.046701
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252452,
+      "longitude": 21.046774
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252797,
+      "longitude": 21.048338
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252964,
+      "longitude": 21.048488
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.252978,
+      "longitude": 21.048559
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253296,
+      "longitude": 21.050495
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253332,
+      "longitude": 21.050465
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253618,
+      "longitude": 21.050744
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253611,
+      "longitude": 21.050788
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.266624,
+      "longitude": 20.977741
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253619,
+      "longitude": 21.050831
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253629,
+      "longitude": 21.050816
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253654,
+      "longitude": 21.050887
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253682,
+      "longitude": 21.050978
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25369,
+      "longitude": 21.051004
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253689,
+      "longitude": 21.051047
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.2537,
+      "longitude": 21.05108
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253718,
+      "longitude": 21.05111
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.253734,
+      "longitude": 21.051139
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.287568,
+      "longitude": 21.006258
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.287505,
+      "longitude": 21.006461
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288104,
+      "longitude": 21.005784
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288078,
+      "longitude": 21.00579
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288062,
+      "longitude": 21.005745
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288062,
+      "longitude": 21.005716
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.28808,
+      "longitude": 21.005672
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288098,
+      "longitude": 21.005672
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.288107,
+      "longitude": 21.005701
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.280045,
+      "longitude": 21.011576
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.278729,
+      "longitude": 21.01468
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.278639,
+      "longitude": 21.01474
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.27861,
+      "longitude": 21.014738
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.278588,
+      "longitude": 21.01477
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.276942,
+      "longitude": 21.01433
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.276993,
+      "longitude": 21.014241
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.277028,
+      "longitude": 21.014214
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.277055,
+      "longitude": 21.014379
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.277141,
+      "longitude": 21.01477
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.277241,
+      "longitude": 21.014707
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.277263,
+      "longitude": 21.014693
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279216,
+      "longitude": 21.012911
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279542,
+      "longitude": 21.012714
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279567,
+      "longitude": 21.012699
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279585,
+      "longitude": 21.012689
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279611,
+      "longitude": 21.012675
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.279631,
+      "longitude": 21.01266
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.280341,
+      "longitude": 21.012236
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.28052,
+      "longitude": 21.012299
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.280524,
+      "longitude": 21.012315
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.280539,
+      "longitude": 21.012397
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.280566,
+      "longitude": 21.012502
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.278578,
+      "longitude": 21.013453
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.260383,
+      "longitude": 21.06014
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.262236,
+      "longitude": 21.056598
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259842,
+      "longitude": 21.054643
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259504,
+      "longitude": 21.055467
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259509,
+      "longitude": 21.055486
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259537,
+      "longitude": 21.055586
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.259552,
+      "longitude": 21.055645
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.26096,
+      "longitude": 21.060597
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.257129,
+      "longitude": 21.053239
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258678,
+      "longitude": 21.053371
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.258728,
+      "longitude": 21.053199
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255662,
+      "longitude": 21.041154
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255652,
+      "longitude": 21.041117
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255601,
+      "longitude": 21.04108
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255592,
+      "longitude": 21.04108
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255592,
+      "longitude": 21.041051
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255583,
+      "longitude": 21.040992
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255556,
+      "longitude": 21.040948
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255538,
+      "longitude": 21.040904
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255538,
+      "longitude": 21.040875
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25552,
+      "longitude": 21.040861
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.25543,
+      "longitude": 21.040626
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255412,
+      "longitude": 21.040582
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255403,
+      "longitude": 21.040553
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.255394,
+      "longitude": 21.040525
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.257665,
+      "longitude": 21.047224
+    },
+    {
+      "objtype": "bush",
+      "latitude": 52.257678,
+      "longitude": 21.047275
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.3456,
+      "longitude": 20.990755
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345551,
+      "longitude": 20.990801
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345368,
+      "longitude": 20.990673
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345146,
+      "longitude": 20.990529
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34485,
+      "longitude": 20.990337
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344837,
+      "longitude": 20.990328
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344409,
+      "longitude": 20.990022
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344563,
+      "longitude": 20.989482
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344719,
+      "longitude": 20.988933
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345131,
+      "longitude": 20.989038
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345743,
+      "longitude": 20.989194
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345701,
+      "longitude": 20.989628
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.345653,
+      "longitude": 20.99011
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.3456,
+      "longitude": 20.990755
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344623,
+      "longitude": 20.988916
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344325,
+      "longitude": 20.989962
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344075,
+      "longitude": 20.989789
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344345,
+      "longitude": 20.988847
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.344623,
+      "longitude": 20.988916
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352621,
+      "longitude": 20.989185
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352376,
+      "longitude": 20.990036
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350538,
+      "longitude": 20.991561
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349705,
+      "longitude": 20.992251
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348947,
+      "longitude": 20.99288
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348171,
+      "longitude": 20.992904
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348024,
+      "longitude": 20.992787
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348389,
+      "longitude": 20.992769
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348841,
+      "longitude": 20.992611
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349014,
+      "longitude": 20.992536
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349703,
+      "longitude": 20.992021
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349904,
+      "longitude": 20.99187
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350338,
+      "longitude": 20.991458
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350719,
+      "longitude": 20.991092
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351299,
+      "longitude": 20.990577
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351448,
+      "longitude": 20.990394
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351627,
+      "longitude": 20.990061
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351811,
+      "longitude": 20.989758
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351938,
+      "longitude": 20.989588
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352123,
+      "longitude": 20.989411
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352621,
+      "longitude": 20.989185
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351699,
+      "longitude": 20.989861
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351605,
+      "longitude": 20.990019
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351424,
+      "longitude": 20.99035
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351281,
+      "longitude": 20.990524
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350697,
+      "longitude": 20.99103
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350275,
+      "longitude": 20.991425
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349877,
+      "longitude": 20.991789
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349707,
+      "longitude": 20.991945
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349525,
+      "longitude": 20.992108
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349377,
+      "longitude": 20.992202
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348829,
+      "longitude": 20.99255
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34839,
+      "longitude": 20.992713
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347999,
+      "longitude": 20.992733
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347681,
+      "longitude": 20.992475
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34851,
+      "longitude": 20.992468
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349052,
+      "longitude": 20.992033
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349555,
+      "longitude": 20.991629
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349757,
+      "longitude": 20.991478
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34999,
+      "longitude": 20.991281
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351555,
+      "longitude": 20.989975
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351699,
+      "longitude": 20.989861
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352376,
+      "longitude": 20.990036
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.351998,
+      "longitude": 20.99135
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350767,
+      "longitude": 20.99488
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350509,
+      "longitude": 20.99463
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349823,
+      "longitude": 20.994137
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349669,
+      "longitude": 20.993979
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349423,
+      "longitude": 20.993825
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349044,
+      "longitude": 20.993545
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348795,
+      "longitude": 20.993405
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348562,
+      "longitude": 20.993196
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348396,
+      "longitude": 20.993081
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348171,
+      "longitude": 20.992904
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.348947,
+      "longitude": 20.99288
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.349705,
+      "longitude": 20.992251
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.350538,
+      "longitude": 20.991561
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.352376,
+      "longitude": 20.990036
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34768,
+      "longitude": 21.000987
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347437,
+      "longitude": 21.001412
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347323,
+      "longitude": 21.001616
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347145,
+      "longitude": 21.001879
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346876,
+      "longitude": 21.001166
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346739,
+      "longitude": 21.00077
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346561,
+      "longitude": 21.000304
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346765,
+      "longitude": 21.000103
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346892,
+      "longitude": 20.999878
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347143,
+      "longitude": 21.000235
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347341,
+      "longitude": 21.000515
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34768,
+      "longitude": 21.000987
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347506,
+      "longitude": 20.998717
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347346,
+      "longitude": 20.999024
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347232,
+      "longitude": 20.999241
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.347095,
+      "longitude": 20.999057
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346964,
+      "longitude": 20.998883
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346699,
+      "longitude": 20.998512
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346441,
+      "longitude": 20.998995
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34615,
+      "longitude": 20.998581
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346445,
+      "longitude": 20.998159
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.346474,
+      "longitude": 20.998117
+    },
+    {
+      "objtype": "forest",
+      "latitude": 52.34654,
+      "longitude": 20.997972
+    }
+  ],
   "police_station": [
     {
       "objtype": "police_station",

@@ -4,7 +4,7 @@ import httpx
 
 from .fetch_warsaw_api import WarsawApiObj, get_warsaw_api_obj_data_result
 
-async def fetch_nature(dataset_name: str):
+async def fetch_nature_obj(dataset_name: str):
     results = await get_warsaw_api_obj_data_result(dataset_name)
 
     records = results.get("records", [])
@@ -22,4 +22,10 @@ async def fetch_nature(dataset_name: str):
 
     return natures
 
+async def fetch_nature():
+    nature = []
+    for dataset in ["tree", "bush", "forest"]:
+        items = await fetch_nature_obj(dataset)
+        nature += items
+    return nature
 

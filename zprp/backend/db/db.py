@@ -23,98 +23,16 @@ def init_db():
         conn.execute("""
             CREATE EXTENSION IF NOT EXISTS postgis;
 
-            CREATE TABLE IF NOT EXISTS aeds (
+            CREATE TABLE city_obj (
                 id SERIAL PRIMARY KEY,
-                street TEXT,
-                building TEXT,
+                objtype TEXT,
                 latitude DOUBLE PRECISION,
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
-            );
+            );                                      
 
-            CREATE TABLE IF NOT EXISTS theatres (
-                id SERIAL PRIMARY KEY,
-                name TEXT,
-                address TEXT,
-                district TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-                     
-            CREATE TABLE IF NOT EXISTS attractions (
-                id SERIAL PRIMARY KEY,
-                name TEXT,
-                address TEXT,
-                city TEXT,
-                category TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-                
-            CREATE TABLE IF NOT EXISTS nature (
-                id SERIAL PRIMARY KEY,
-                objtype TEXT,               -- tree / bush / forest
-                address TEXT,
-                district TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );        
-
-                     
-            CREATE TABLE IF NOT EXISTS police_stations (
-                id SERIAL PRIMARY KEY,
-                name TEXT,
-                district TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-
-            CREATE TABLE IF NOT EXISTS pharmacies (
-                id SERIAL PRIMARY KEY,
-                name TEXT,
-                street TEXT,
-                number TEXT,
-                district TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-
-                     
-            CREATE TABLE IF NOT EXISTS stops (
-                id SERIAL PRIMARY KEY,
-                stop_id TEXT,
-                stop_post TEXT,
-                stop_name TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-
-                     
-            CREATE TABLE IF NOT EXISTS bike_stations (
-                id SERIAL PRIMARY KEY,
-                name TEXT,
-                description TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-
-                     
-            CREATE TABLE IF NOT EXISTS accommodations (
-                id SERIAL PRIMARY KEY,
-                objtype TEXT,  -- hotel or dorm
-                name TEXT,
-                address TEXT,
-                latitude DOUBLE PRECISION,
-                longitude DOUBLE PRECISION,
-                geom GEOGRAPHY(POINT, 4326)
-            );
+            CREATE INDEX city_obj_geom_gix
+            ON city_obj USING GIST (geom); 
 
 
             CREATE TABLE IF NOT EXISTS offers (
@@ -128,48 +46,6 @@ def init_db():
                 latitude DOUBLE PRECISION,
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
-            );
-                                      
+            );                                         
 
         """)
-
-
-def create_total_city_obj_table():
-    with get_conn() as conn:
-        conn.execute("DROP TABLE IF EXISTS city_obj;")
-        conn.execute("""
-            CREATE TABLE city_obj (
-                id SERIAL PRIMARY KEY,
-                objtype TEXT,
-                geom GEOGRAPHY(POINT, 4326)
-            );
-        """)
-
-
-        insert_map = [
-            ("accommodations",    "objtype"),         # has its own objtype
-            ("nature",            "objtype"),         # has its own objtype
-            ("aeds",              "'aed'"),          # no objtype -> table name (singular)
-            ("theatres",          "'theatre'"),
-            ("attractions",       "'attraction'"),
-            ("police_stations",   "'police station'"),
-            ("pharmacies",        "'pharmacy'"),
-            ("stops",             "'stop'"),
-            ("bike_stations",     "'bike station'"),
-        ]
-
-        for table, objtype_expr in insert_map:
-            conn.execute(f"""
-                INSERT INTO city_obj (objtype, geom)
-                SELECT {objtype_expr}, geom
-                FROM {table}
-                WHERE geom IS NOT NULL;
-            """)
-
-
-
-        conn.execute("""
-            CREATE INDEX city_obj_geom_gix
-            ON city_obj USING GIST (geom);
-        """)
-

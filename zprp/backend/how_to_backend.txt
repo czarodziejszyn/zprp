@@ -68,13 +68,5 @@ Chart:
 
 
 
-
-
-7.  Check offer table:
-docker compose exec db bash
-psql -U $POSTGRES_USER -d $POSTGRES_DB
-SELECT * FROM offers;
-exit
-
-8. Remove backend Docker image:
+7. Remove backend Docker image:
 docker compose down -v --remove-orphans
