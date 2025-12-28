@@ -78,7 +78,8 @@ def scrap_offers(max_offer_pages):
                     url = link.get_attribute("href")
                     offer_id = url.split("-")[-1]
                 except Exception as e:
-                    print("Exception in the offer - url not found:", e)
+                    print("Skipping offer - url not found")
+                    continue
 
                 # Skip duplicates
                 if offer_id in seen_ids:
