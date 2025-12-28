@@ -35,8 +35,8 @@ async def fetch_api_data():
         items = await fetch_nature(dataset)
         nature[dataset] = serialize(items)
 
-    police_stations = await fetch_police_stations(limit=200)
-    pharmacies = await fetch_pharmacies(limit=300)
+    police_stations = await fetch_police_stations()
+    pharmacies = await fetch_pharmacies()
     stops = await fetch_stops()
     bike_stations = await fetch_bike_stations("bike_stations")
 
