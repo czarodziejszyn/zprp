@@ -18,43 +18,46 @@ def serialize(obj):
         return obj.model_dump()
     if isinstance(obj, list):
         return [serialize(x) for x in obj]
-    if isinstance(obj, dict):
-        return {k: serialize(v) for k, v in obj.items()}
     return obj
 
 
 async def fetch_api_data():
     print("Fetching data from APIs...")
-    attractions = await fetch_attractions()
+
+
+
+    # accomodations
+    hotels = await fetch_accommodations("hotel")
+    dorms = await fetch_accommodations("dorm")
+    accommodations = hotels + dorms
+
     theatres = await fetch_theatres()
+    bike_stations = await fetch_bike_stations()
     aeds = await fetch_aeds()
+    attractions = await fetch_attractions()
 
     # nature
     nature = {}
-    for dataset in ["trees", "bushes", "forests"]:
+    for dataset in ["tree", "bush", "forest"]:
         items = await fetch_nature(dataset)
         nature[dataset] = serialize(items)
 
     police_stations = await fetch_police_stations()
     pharmacies = await fetch_pharmacies()
     stops = await fetch_stops()
-    bike_stations = await fetch_bike_stations()
 
-    # accomodations
-    hotels = await fetch_accommodations("hotels")
-    dorms = await fetch_accommodations("dorms")
-    accommodations = hotels + dorms
+
 
     cache = {
-        "theatres": serialize(theatres),
-        "aeds": serialize(aeds),
-        "attractions": serialize(attractions),
+        "theatre": serialize(theatres),
+        "aed": serialize(aeds),
+        "attraction": serialize(attractions),
         "nature": nature,
-        "police_stations": serialize(police_stations),
-        "pharmacies": serialize(pharmacies),
-        "stops": serialize(stops),
-        "bike_stations": serialize(bike_stations),
-        "accommodations": serialize(accommodations),
+        "police_station": serialize(police_stations),
+        "pharmacy": serialize(pharmacies),
+        "stop": serialize(stops),
+        "bike_station": serialize(bike_stations),
+        "accommodation": serialize(accommodations),
     }
 
     return cache
