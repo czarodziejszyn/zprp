@@ -25,6 +25,11 @@ docker compose exec api bash
 python -m db.import_data
 
 
+6. Saving data from api to cache - will save api cache to ./data/api_backup
+docker compose exec api bash
+python -m cache.save_cache
+
+
 
 
 6. API server is running at: http://localhost:8000/.
