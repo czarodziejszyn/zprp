@@ -6,7 +6,7 @@ You can customize: number of pages to scrap, .json file name.
 docker compose build --no-cache
 
 
-3) Run main.py. This will create .json file with scraped offers in /scraper. Offers are not yet geocoded.
+3) Run main.py. This will create .json file with scraped offers in ./data/raw. Offers are not yet geocoded.
 docker compose up
 
 

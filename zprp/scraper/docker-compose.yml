@@ -6,6 +6,7 @@ services:
     container_name: selenium_scraper
     volumes:
       - .:/app
+      - ../data/raw:/app/data/raw 
     env_file:
       - .env        
     environment:
