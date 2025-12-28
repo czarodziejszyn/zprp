@@ -53,56 +53,53 @@ def get_chart():
 
 # Endpoints for database
 @app.get("/police_stations", response_model=list[PoliceStation])
-async def get_police_stations(limit: int = Query(10, ge=1, le=200)):
-    return await fetch_police_stations(limit=limit)
+async def get_police_stations():
+    return await fetch_police_stations()
 
 
 @app.get("/aeds", response_model=list[AEDs])
-async def get_aeds(limit: int = Query(10, ge=1, le=200)):
-    return await fetch_aeds(limit=limit)
+async def get_aeds():
+    return await fetch_aeds()
 
 
 @app.get("/pharmacies", response_model=list[Pharmacy])
-async def get_pharmacies(limit: int = Query(10, ge=1, le=100)):
+async def get_pharmacies():
     """
     Get list of pharmacies in Warsaw.
     """
-    return await fetch_pharmacies(limit=limit)
+    return await fetch_pharmacies()
 
 
 @app.get("/nature/{dataset_name}", response_model=list[Nature])
 async def get_nature(dataset_name: str):
     """
-    Get nature data by dataset_name (bushes, forests, trees). Default limit is 100 results.
+    Get nature data by dataset_name (bushes, forests, trees).
     """
     return await fetch_nature(dataset_name)
 
 
 @app.get("/bike_stations", response_model=list[BikeStation])
-async def get_bike_stations(limit: int = Query(10, ge=1, le=100)):
+async def get_bike_stations():
     """
     Get a list of Warsaw bicycle stations.
     """
-    return await fetch_bike_stations("bike_stations", limit=limit)
+    return await fetch_bike_stations("bike_stations")
 
 
 @app.get("/accommodations/{dataset_name}", response_model=list[Accommodation])
-async def get_accommodations(
-    dataset_name: str,
-    limit: int = Query(10, ge=1, le=100)
-):
+async def get_accommodations(dataset_name: str):
     """
     Get list of accommodations (hotels or university dorms).
     """
-    return await fetch_accommodations(dataset_name, limit=limit)
+    return await fetch_accommodations(dataset_name)
 
 
 @app.get("/stops", response_model=list[Stop])
-async def get_stops(limit: int = Query(10, ge=1, le=500)):
+async def get_stops():
     """
-    Get a list of Warsaw public transport stops (up to `limit`).
+    Get a list of Warsaw public transport stops.
     """
-    return await fetch_stops(limit=limit)
+    return await fetch_stops()
 
 
 @app.get("/theatres", response_model=list[Theatre])

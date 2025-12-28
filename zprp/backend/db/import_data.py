@@ -224,7 +224,7 @@ async def import_nature():
 
 async def import_police_stations():
     try:
-        police_stations = await fetch_police_stations(limit=200)
+        police_stations = await fetch_police_stations()
         print("Fetched police stations from API")
     except Exception as e:
         print(f"Error fetching police stations: ")
@@ -261,7 +261,7 @@ async def import_police_stations():
 
 async def import_pharmacies():
     try:
-        pharmacies = await fetch_pharmacies(limit=300)
+        pharmacies = await fetch_pharmacies()
         print("Fetched pharmacies from API")
     except Exception as e:
         print(f"Error fetching pharmacies: ")
@@ -348,7 +348,7 @@ async def import_stops():
 
 async def import_bike_stations():
     try:
-        bike_stations = await fetch_bike_stations("bike_stations")
+        bike_stations = await fetch_bike_stations()
         print("Fetched bike stations from API")
     except Exception as e:
         print(f"Error fetching bike stations: ")

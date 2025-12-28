@@ -14,10 +14,6 @@ BASE_URL = "https://api.um.warszawa.pl/api/action/tourism_attraction_get/"
 
 
 class Attraction(BaseModel):
-    name: str | None = None
-    address: str | None = None
-    city: str | None = None
-    category: str | None = None     # type of attraction, f.ex museum
     latitude: float | None = None
     longitude: float | None = None
 
@@ -40,10 +36,6 @@ async def fetch_attractions():
     for t in result_list:
         latlng = t.get("latlng", {})
         attractions.append(Attraction(
-            name=t.get("name"),
-            address=t.get("street"),
-            city=t.get("city"),
-            category=t.get("category"),
             latitude=float(latlng.get("lat")) if latlng.get("lat") else None,
             longitude=float(latlng.get("lng")) if latlng.get("lng") else None
         ))

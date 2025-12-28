@@ -38,7 +38,7 @@ async def fetch_api_data():
     police_stations = await fetch_police_stations()
     pharmacies = await fetch_pharmacies()
     stops = await fetch_stops()
-    bike_stations = await fetch_bike_stations("bike_stations")
+    bike_stations = await fetch_bike_stations()
 
     # accomodations
     hotels = await fetch_accommodations("hotels")

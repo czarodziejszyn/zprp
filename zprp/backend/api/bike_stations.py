@@ -7,26 +7,20 @@ API_KEY = os.getenv("WARSZAWA_API_KEY")
 if not API_KEY:
     raise RuntimeError("Missing WARSZAWA_API_KEY. Add it to .env or system env.")
 
-# Resource IDs for bicycle data
-RESOURCE_IDS = {
-    "bike_stations": "a08136ec-1037-4029-9aa5-b0d0ee0b9d88",
-}
+
+RESOURCE_ID = "a08136ec-1037-4029-9aa5-b0d0ee0b9d88"
 
 BASE_URL = "https://api.um.warszawa.pl/api/action/wfsstore_get"
 
 class BikeStation(BaseModel):
-    name: str | None = None
-    description: str | None = None
     latitude: float | None = None
     longitude: float | None = None
 
 
-async def fetch_bike_stations(dataset_name: str, limit: int = 10):
-    resource_id = RESOURCE_IDS.get(dataset_name)
-    if not resource_id:
-        raise HTTPException(status_code=404, detail=f"Dataset {dataset_name} not found")
+async def fetch_bike_stations():
+    resource_id = RESOURCE_ID
 
-    params = {"id": resource_id, "limit": limit, "apikey": API_KEY}
+    params = {"id": resource_id, "apikey": API_KEY}
 
     async with httpx.AsyncClient(timeout=httpx.Timeout(60.0, connect=20.0), follow_redirects=True) as client:
         try:
@@ -47,12 +41,8 @@ async def fetch_bike_stations(dataset_name: str, limit: int = 10):
 
     for item in data["result"]["featureMemberList"]:
         coords = item.get("geometry", {}).get("coordinates", [{}])[0]
-        props_list = item.get("properties", [])
-        props = {p["key"]: p["value"] for p in props_list}
 
         stations.append(BikeStation(
-            name=props.get("LOKALIZACJA"),
-            description=f"Station {props.get('NR_STACJI')}, Bikes: {props.get('ROWERY')}, Stands: {props.get('STOJAKI')}",
             latitude=float(coords.get("latitude")) if coords.get("latitude") else None,
             longitude=float(coords.get("longitude")) if coords.get("longitude") else None
         ))

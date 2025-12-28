@@ -21,8 +21,6 @@ BASE_URL = "https://api.um.warszawa.pl/api/action/wfsstore_get"
 
 class Accommodation(BaseModel):
     objtype: str | None = None  # hotels or dorms
-    name: str | None = None
-    address: str | None = None
     latitude: float | None = None
     longitude: float | None = None
 
@@ -52,13 +50,9 @@ async def fetch_accommodations(dataset_name: str, limit: int = 10):
 
     for item in data["result"]["featureMemberList"]:
         coords = item.get("geometry", {}).get("coordinates", [{}])[0]
-        props_list = item.get("properties", [])
-        props = {p["key"]: p["value"] for p in props_list}
 
         accommodations.append(Accommodation(
             objtype="hotel" if dataset_name == "hotels" else "dorm",
-            name=props.get("OPIS"),
-            address=props.get("ADRES"),
             latitude=float(coords.get("latitude")) if coords.get("latitude") else None,
             longitude=float(coords.get("longitude")) if coords.get("longitude") else None
         ))

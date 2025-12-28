@@ -11,17 +11,14 @@ POLICE_RESOURCE_ID = "85f567f1-bb56-4657-a30e-afd80544fc7f"
 BASE_URL = "https://api.um.warszawa.pl/api/action/wfsstore_get"
 
 class PoliceStation(BaseModel):
-    name: str | None = None
-    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
 
 
 
-async def fetch_police_stations(limit: int = 10):
+async def fetch_police_stations():
     params = {
         "id": POLICE_RESOURCE_ID,
-        "limit": limit,
         "apikey": API_KEY
     }
 
@@ -53,8 +50,6 @@ async def fetch_police_stations(limit: int = 10):
         props = {p["key"]: p["value"] for p in item.get("properties", [])}
 
         stations.append(PoliceStation(
-            name=props.get("OPIS"),
-            district=props.get("DZIELNICA"),
             latitude=lat,
             longitude=lon
         ))

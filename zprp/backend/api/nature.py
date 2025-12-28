@@ -11,22 +11,20 @@ RESOURCE_IDS = {
 
 BASE_URL = "https://api.um.warszawa.pl/api/action/datastore_search"
 
-# Pydantic model
+
 class Nature(BaseModel):
     objtype: str | None = None  # bushes, forests, trees
-    address: str | None = None
-    district: str | None = None
     latitude: float | None = None
     longitude: float | None = None
 
 
-# Shared fetch function
-async def fetch_nature(dataset_name: str, limit: int = 100):
+
+async def fetch_nature(dataset_name: str):
     resource_id = RESOURCE_IDS.get(dataset_name)
     if not resource_id:
         raise HTTPException(status_code=404, detail=f"Dataset {dataset_name} not found")
 
-    params = {"resource_id": resource_id, "limit": limit}  # no API key
+    params = {"resource_id": resource_id}  # no API key
 
     async with httpx.AsyncClient(timeout=20, follow_redirects=True) as client:
         response = await client.get(BASE_URL, params=params)
@@ -39,7 +37,6 @@ async def fetch_nature(dataset_name: str, limit: int = 100):
     for r in records:
         lat = float(r.get("y_wgs84")) if r.get("y_wgs84") else None
         lon = float(r.get("x_wgs84")) if r.get("x_wgs84") else None
-        addr = r.get("adres") or r.get("lokalizacja")
 
         type_label = (
             "tree" if dataset_name == "trees" else
@@ -50,8 +47,6 @@ async def fetch_nature(dataset_name: str, limit: int = 100):
 
         natures.append(Nature(
             objtype=type_label,
-            address=addr,
-            district=r.get("dzielnica"),
             latitude=lat,
             longitude=lon
         ))

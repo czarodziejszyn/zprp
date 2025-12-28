@@ -12,15 +12,14 @@ BASE_URL = "https://api.um.warszawa.pl/api/action/aed_get"
 
 
 class AEDs(BaseModel):
-    street: str | None = None
-    building: str | None = None
+    # objtype: str = "aed"
     latitude: float | None = None
     longitude: float | None = None
 
 
 
-async def fetch_aeds(limit: int = 10):
-    params = {"apikey": API_KEY, "limit": limit}
+async def fetch_aeds():
+    params = {"apikey": API_KEY}
 
     async with httpx.AsyncClient(timeout=httpx.Timeout(60.0, connect=20.0), follow_redirects=True) as client:
         try:
@@ -54,8 +53,6 @@ async def fetch_aeds(limit: int = 10):
         props = item.get("properties", {})
 
         aeds.append(AEDs(
-            street=props.get("location_street"),
-            building=props.get("location_building"),
             latitude=lat,
             longitude=lon
         ))
