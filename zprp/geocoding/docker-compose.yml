@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  geocoding:
+    build:
+      context: .
+    container_name: geocoding-runner
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    restart: "no"

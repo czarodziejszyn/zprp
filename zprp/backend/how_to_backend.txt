@@ -1,0 +1,80 @@
+0. 
+Do scraper/how_to_scrap.txt instructions. 
+Do geocoding/how_to_geocode.txt instructions.
+
+Move geocoded_otodom_warszawa.json to /backend directory. 
+
+
+1. Log into Warszawa API: https://api.um.warszawa.pl/
+Read your assigned API KEY.
+
+2. Set API KEY as variable in /backend/.env file
+
+3. Start Docker.
+
+4. Start backend - from /backend:
+docker compose up -d --build
+
+API Swagger documentation should be available on http://127.0.0.1:8000/docs.
+
+
+5. Importing data to PostreSQL database: -> U need to already have .json of scrapped offers.
+After starting backend Docker image, run:
+
+docker compose exec api bash
+python -m db.import_data
+
+
+6. Saving data from api to cache - will save api cache to ./data/api_backup
+docker compose exec api bash
+python -m cache.save_cache
+
+
+
+
+6. API server is running at: http://localhost:8000/.
+
+MODEL:
+To get count of objects in a city for given point with given radius you need to use /nearby endpoint: 
+
+import httpx
+    url = "http://localhost:8000/nearby"
+    params = {      
+        "lat": lat,             # float
+        "lon": lon,             # float
+        "radius": radius        # in meters; int
+    }
+response = httpx.get(url, params=params)
+print(response.json())
+
+
+
+
+FRONT:
+Prices:
+    url = "http://localhost:8000/prices"
+    params = {
+        "lat": lat,
+        "lon": lon
+    }
+    response = httpx.get(url, params=params)
+    data = response.json()
+
+
+Chart:
+    url = "http://localhost:8000/chart"
+    response = httpx.get(url)   # binary
+
+
+
+
+
+
+7.  Check offer table:
+docker compose exec db bash
+psql -U $POSTGRES_USER -d $POSTGRES_DB
+SELECT * FROM offers;
+exit
+
+8. Remove backend Docker image:
+docker compose down -v --remove-orphans
