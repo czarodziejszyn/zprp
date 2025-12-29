@@ -19,7 +19,7 @@ DATASETS = {
     },
 
     "aed": {
-        "base_url": "https://api.um.warszawa.pl/api/action/aed_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/aed_get/",
         "resource_id": None
     },
 
@@ -32,43 +32,43 @@ DATASETS = {
 
 
     "bush": {
-        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search",
+        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search/",
         "resource_id": "0b1af81f-247d-4266-9823-693858ad5b5d"
     },
 
     "forest": {
-        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search",
+        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search/",
         "resource_id": "75bedfd5-6c83-426b-9ae5-f03651857a48"
     },
 
     "tree": {
-        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search",
+        "base_url": "https://api.um.warszawa.pl/api/action/datastore_search/",
         "resource_id": "ed6217dd-c8d0-4f7b-8bed-3b7eb81a95ba"
     },
 
 
 
     "bike_station": {
-        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get/",
         "resource_id": "a08136ec-1037-4029-9aa5-b0d0ee0b9d88"
     },
 
     "hotel": {
-        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get/",
         "resource_id": "f019448f-951c-439e-bf37-c3268682752e"
     },
     "dorm": {
-        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get/",
         "resource_id": "c789b05d-31b1-4b55-970a-4d3deb923f79"
     },
 
     "pharmacy": {
-        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get/",
         "resource_id": "fd137190-3d65-4306-a85e-5e97e7f29a23"
     },
 
     "police_station": {
-        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get",
+        "base_url": "https://api.um.warszawa.pl/api/action/wfsstore_get/",
         "resource_id": "fd137190-3d65-4306-a85e-5e97e7f29a23"
     },
 

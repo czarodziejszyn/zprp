@@ -12,6 +12,11 @@ from pydantic import BaseModel
 
 from .json_cache import save_json
 
+from logger import logging_config 
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 def serialize(obj):
     if isinstance(obj, BaseModel):
@@ -22,19 +27,14 @@ def serialize(obj):
 
 
 async def fetch_api_data():
-    print("Fetching data from APIs...")
-
+    logger.info("Fetching data from APIs...")
 
     accommodations = await fetch_accommodations()
-
     theatres = await fetch_theatres()
     bike_stations = await fetch_bike_stations()
     aeds = await fetch_aeds()
     attractions = await fetch_attractions()
-
-
     nature = await fetch_nature()
-
     police_stations = await fetch_police_stations()
     pharmacies = await fetch_pharmacies()
     stops = await fetch_stops()
@@ -59,9 +59,14 @@ async def fetch_api_data():
 
 
 async def main():
-    data = await fetch_api_data()
-    save_json(data)
-    print("API cache updated successfully")
+    try:
+        data = await fetch_api_data()
+        save_json(data)
+    except Exception:
+        logger.exception("API cache update failed")
+        return 
+
+    logger.info("API cache updated successfully")
 
 
 if __name__ == "__main__":
