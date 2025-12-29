@@ -1,6 +1,18 @@
 from .db import get_conn
 
 def get_avg_real_price(lat: float, lon: float, radius_meters: int):
+    """
+    Compute the average real estate price per square meter for a given area.
+
+    Args:
+        lat (float): Latitude of the location.
+        lon (float): Longitude of the location.
+        radius_meters (int): Radius in meters to include in calculation.
+
+    Returns:
+        float: Average price per square meter.
+               Returns 0 if no data is available.
+    """
     with get_conn() as conn:
         row = conn.execute("""
             SELECT AVG(price_per_m2) AS avg_price
