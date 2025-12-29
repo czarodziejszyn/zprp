@@ -3,6 +3,8 @@ import json
 import os
 import pandas as pd
 from geopy.geocoders import Nominatim
+from logger import logging_config 
+import logging
 
 
 NOMINATIM_DOMAIN = os.getenv("NOMINATIM_DOMAIN")
@@ -10,6 +12,7 @@ OFFERS_JSON_PATH = os.getenv("OFFERS_JSON_PATH")
 GEOCODED_OFFERS_JSON_PATH = os.getenv("GEOCODED_OFFERS_JSON_PATH")
 
 geolocator = Nominatim(user_agent="my_app", scheme="http", domain=NOMINATIM_DOMAIN)
+logger = logging.getLogger(__name__)
 
 
 def prepare_address_str(address):
@@ -54,7 +57,7 @@ def geocode_json_file(in_file_path, out_file_path):
     geocoded_offers = geocode_offers(offers)
     df = pd.DataFrame(geocoded_offers)
     df.to_json(out_file_path, orient="records", force_ascii=False, indent=2)
-    print(f"[OK] Written {len(geocoded_offers)} records to {out_file_path}")
+    logger.info(f"[OK] Written {len(geocoded_offers)} records to {out_file_path}")
 
     
 

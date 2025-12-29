@@ -8,7 +8,8 @@ services:
     volumes:
       - .:/app
       - ../data/raw:/app/data/raw 
-      - ../data/processed:/app/data/processed 
+      - ../data/processed:/app/data/processed
+      - ../logger:/app/logger  
     env_file:
       - .env
     restart: "no"
