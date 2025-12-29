@@ -10,7 +10,7 @@ from api.bike_stations import fetch_bike_stations
 from api.accomodations import fetch_accommodations
 from pydantic import BaseModel
 
-from .json_cache import save_json
+from .json_cache import save_api_cache_json
 
 from logger import logging_config 
 import logging
@@ -61,7 +61,7 @@ async def fetch_api_data():
 async def main():
     try:
         data = await fetch_api_data()
-        save_json(data)
+        save_api_cache_json(data)
     except Exception:
         logger.exception("API cache update failed")
         return 

@@ -13,17 +13,18 @@ from api.accomodations import fetch_accommodations
 
 from .db import get_conn, init_db
 
-from cache.json_cache import load_json
+from cache.json_cache import load_api_cache_json
+from logger import logging_config 
+import logging
 
 
 GEOCODED_OFFERS_JSON_PATH = os.getenv("GEOCODED_OFFERS_JSON_PATH")
-
+logger = logging.getLogger(__name__)
 
 
 def import_offers():
     with open(GEOCODED_OFFERS_JSON_PATH, "r", encoding="utf-8") as handler:
         offers = json.load(handler)
-
 
     with get_conn() as conn:
         for o in offers:
@@ -92,127 +93,24 @@ def import_obj_list(obj_list):
         return len(obj_list)
 
 
-async def import_aeds():
+
+async def import_with_cache(fetch_func, cache_key: str, obj_name :str):
     try:
-        aeds = await fetch_aeds()
-        print("Fetched AEDs from API.")
+        objs = await fetch_func()
+        logger.info(f"Fetched {obj_name} from API.")
     except Exception as e:
-        print(f"Error fetching AEDs from API:")
-        cache = load_json()
-        aeds = cache.get("aeds", [])
-        print(f"Using {len(aeds)} AEDs from cache.")
+        logger.warning(f"Error fetching {obj_name} from API")
+        try:
+            cache = load_api_cache_json()
+        except Exception:
+            logger.error(f"Error loading {obj_name} from cache. Skipping import.")
+            return 0
+        objs = cache.get(cache_key, [])
+        logger.info(f"Using {obj_name} from cache.")
 
-    return import_obj_list(aeds)
-
-
-
-async def import_theatres():
-    try:
-        theatres = await fetch_theatres()
-        print("Fetched theatres from API.")
-    except Exception as e:
-        print(f"Error fetching theatres from API:")
-        cache = load_json()
-        theatres = cache.get("theatres", [])
-        print(f"Using {len(theatres)} theatres from cache.")
-
-    return import_obj_list(theatres)
+    return import_obj_list(objs)
 
 
-
-async def import_attractions():
-    try:
-        attractions = await fetch_attractions()
-        print("Fetched attractions from API.")
-    except Exception as e:
-        print(f"Error fetching attractions from API:")
-        cache = load_json()
-        attractions = cache.get("attractions", [])
-        print(f"Using {len(attractions)} attractions from cache.")
-
-    return import_obj_list(attractions)
-
-
-async def import_nature():
-    try:
-        nature = await fetch_nature()
-        print(f"Fetched nature from API.")
-    except Exception as e:
-        print(f"Error fetching nature: ")
-        cache = load_json()
-        nature = cache.get("nature", {})
-        print(f"Using {len(nature)} natures from cache.")
-
-
-    return import_obj_list(nature)
-
-
-
-async def import_police_stations():
-    try:
-        police_stations = await fetch_police_stations()
-        print("Fetched police stations from API.")
-    except Exception as e:
-        print(f"Error fetching police stations: ")
-        cache = load_json()
-        police_stations = cache.get("police_stations", [])
-        print(f"Using {len(police_stations)} police stations from cache.")
-
-    return import_obj_list(police_stations)
-
-
-
-async def import_pharmacies():
-    try:
-        pharmacies = await fetch_pharmacies()
-        print("Fetched pharmacies from API.")
-    except Exception as e:
-        print(f"Error fetching pharmacies: ")
-        cache = load_json()
-        pharmacies = cache.get("pharmacies", [])
-        print(f"Using {len(pharmacies)} pharmacies from cache.")
-
-    return import_obj_list(pharmacies)
-
-
-
-async def import_stops():
-    try:
-        stops = await fetch_stops()
-        print("Fetched stops from API.")
-    except Exception as e:
-        print(f"Error fetching stops: ")
-        cache = load_json()
-        stops = cache.get("stops", [])
-        print(f"Using {len(stops)} stops from cache.")
-
-    return import_obj_list(stops)
-
-
-async def import_bike_stations():
-    try:
-        bike_stations = await fetch_bike_stations()
-        print("Fetched bike stations from API.")
-    except Exception as e:
-        print(f"Error fetching bike stations: ")
-        cache = load_json()
-        bike_stations = cache.get("bike_stations", [])
-        print(f"Using {len(bike_stations)} bike stations from cache.")
-
-    return import_obj_list(bike_stations)
-
-
-async def import_accommodations():
-    try:
-        accommodations = await fetch_accommodations()
-        print("Fetched accommodations from API.")
-    except Exception as e:
-        print(f"Error fetching accommodations: ")
-        cache = load_json()
-        accommodations = cache.get("accommodations", [])
-        print(f"Using {len(accommodations)} accommodations from cache.")
-
-    return import_obj_list(accommodations)
 
 
 
@@ -221,44 +119,43 @@ async def main():
 
     # Offers
     offers_count = import_offers()
-    print(f"Imported {offers_count} offers from otodom.")
+    logger.info(f"Imported {offers_count} offers from JSON.")
 
     # AEDs
-    aeds_count = await import_aeds()
-    print(f"Imported {aeds_count} AEDs.")
+    aeds_count = await import_with_cache(fetch_aeds, "aed", "AEDs")
+    logger.info(f"Imported {aeds_count} AEDs.")
 
     # Theatres
-    theatres_count = await import_theatres()
-    print(f"Imported {theatres_count} theatres.")
-
+    theatres_count = await import_with_cache(fetch_theatres, "theatre", "theatres")
+    logger.info(f"Imported {theatres_count} theatres.")
 
     # Tourist attractions
-    attractions_count = await import_attractions()
-    print(f"Imported {attractions_count} attractions.")
+    attractions_count = await  import_with_cache(fetch_attractions, "attraction", "attractions")
+    logger.info(f"Imported {attractions_count} attractions.")
 
     # Nature 
-    nature_count = await import_nature()
-    print(f"Imported {nature_count} nature objects.")
+    nature_count = await import_with_cache(fetch_nature, "nature", "nature")
+    logger.info(f"Imported {nature_count} nature objects.")
 
     # Police stations
-    police_count = await import_police_stations()
-    print(f"Imported {police_count} police stations.")
+    police_count = await import_with_cache(fetch_police_stations, "police_station", "police stations")
+    logger.info(f"Imported {police_count} police stations.")
 
     # Pharmacies
-    pharmacies_count = await import_pharmacies()
-    print(f"Imported {pharmacies_count} pharmacies.")
+    pharmacies_count = await import_with_cache(fetch_pharmacies, "pharmacy", "pharmacies")
+    logger.info(f"Imported {pharmacies_count} pharmacies.")
 
     # Stops
-    stops_count = await import_stops()
-    print(f"Imported {stops_count} public transport stops.")
+    stops_count = await import_with_cache(fetch_pharmacies, "stop", "stops")
+    logger.info(f"Imported {stops_count} public transport stops.")
 
     # Bike stations
-    bike_count = await import_bike_stations()
-    print(f"Imported {bike_count} bike stations.")
+    bike_count = await import_with_cache(fetch_bike_stations, "bike_station", "bike stations")
+    logger.info(f"Imported {bike_count} bike stations.")
 
     # Accomodiations
-    accommodations_count = await import_accommodations()
-    print(f"Imported {accommodations_count} accommodations.")
+    accommodations_count = await import_with_cache(fetch_accommodations, "accommodation", "accommodations")
+    logger.info(f"Imported {accommodations_count} accommodations.")
 
 
 
