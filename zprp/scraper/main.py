@@ -1,6 +1,7 @@
 
 import os
 from scrapping import scrap_offers, write_offers_to_json
+from logger import logging_config 
 
 
 MAX_OFFER_PAGES = int(os.getenv("MAX_OFFER_PAGES"))

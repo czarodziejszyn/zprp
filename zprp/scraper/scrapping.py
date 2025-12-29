@@ -7,14 +7,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import logging
 
 
 OTODOM_URL = os.getenv("OTODOM_URL")
 CHROME_BINARY_PATH = os.getenv("CHROME_BINARY_PATH")
 CHROMEDRIVER_PATH = os.getenv("CHROMEDRIVER_PATH")
 
-
+logger = logging.getLogger(__name__)
 
 
 def scrap_offers(max_offer_pages):
@@ -40,7 +40,7 @@ def scrap_offers(max_offer_pages):
     seen_ids = set()
     for page in range(1, max_offer_pages + 1):
         page_url = f"{OTODOM_URL}?page={page}"
-        print(f"[+] Downloading page {page}: {page_url}")
+        logger.info(f"[+] Downloading page {page}: {page_url}")
         driver.get(page_url)
 
         # Accept cookies
@@ -57,14 +57,14 @@ def scrap_offers(max_offer_pages):
                 EC.presence_of_element_located((By.TAG_NAME, "article"))
             )
         except:
-            print("  -> No offers found – end.")
+            logger.info("  -> No offers found – end.")
             break
 
 
         # Find offers
         offers = driver.find_elements(By.TAG_NAME, "article")
         if not offers:
-            print("  -> No offers found – end.")
+            logger.info("  -> No offers found – end.")
             break
 
 
@@ -78,7 +78,7 @@ def scrap_offers(max_offer_pages):
                     url = link.get_attribute("href")
                     offer_id = url.split("-")[-1]
                 except Exception as e:
-                    print("Skipping offer - url not found")
+                    logger.exception("Skipping offer - url not found")
                     continue
 
                 # Skip duplicates
@@ -153,7 +153,7 @@ def scrap_offers(max_offer_pages):
 
 
             except Exception as e:
-                print("Exception in the offer:", e)
+                logger.exception("Exception in the offer:", e)
 
     driver.quit()
     return all_offers
@@ -162,7 +162,7 @@ def scrap_offers(max_offer_pages):
 def write_offers_to_json(offers, file_path):
     df = pd.DataFrame(offers)
     df.to_json(file_path, orient="records", force_ascii=False, indent=2)
-    print(f"[OK] Written {len(offers)} records to {file_path}")
+    logger.info(f"[OK] Written {len(offers)} records to {file_path}")
 
     
 
