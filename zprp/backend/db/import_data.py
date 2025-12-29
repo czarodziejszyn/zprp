@@ -100,10 +100,12 @@ async def import_with_cache(fetch_func, cache_key: str, obj_name :str):
         logger.info(f"Fetched {obj_name} from API.")
     except Exception as e:
         logger.warning(f"Error fetching {obj_name} from API")
+        logger.debug(f"Full exception: {e}", exc_info=True)
         try:
             cache = load_api_cache_json()
-        except Exception:
+        except Exception as e:
             logger.error(f"Error loading {obj_name} from cache. Skipping import.")
+            logger.debug(f"Full exception: {e}", exc_info=True)
             return 0
         objs = cache.get(cache_key, [])
         logger.info(f"Using {obj_name} from cache.")

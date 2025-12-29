@@ -3,7 +3,10 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import httpx
 import os
+import asyncio
+import logging
 
+logger = logging.getLogger(__name__)
 
 API_KEY = os.getenv("WARSZAWA_API_KEY")
 if not API_KEY:
@@ -111,22 +114,40 @@ async def get_warsaw_api_obj_data_result(dataset_name):
             params["id"] = resource_id
 
 
+    attempt = 0
+    retries = 3
+    backoff = 2     # in seconds
+    while attempt < retries:
+        attempt += 1
 
-    async with httpx.AsyncClient(timeout=httpx.Timeout(60.0, connect=20.0), follow_redirects=True) as client:
-        response = await client.get(base_url, params=params)
+        try:
+            async with httpx.AsyncClient(timeout=httpx.Timeout(60.0, connect=20.0), follow_redirects=True) as client:
+                response = await client.get(base_url, params=params)
 
-    if response.status_code != 200:
-        raise HTTPException(status_code=500, detail=f"Warsaw API error: {response.status_code}")
+            if response.status_code != 200:
+                raise HTTPException(status_code=500, detail=f"Warsaw API error: {response.status_code}")
 
-    try:
-        data = response.json()
-    except Exception:
-        raise HTTPException(status_code=500, detail=f"API returned non-JSON: {response.text}")
+            try:
+                data = response.json()
+            except Exception:
+                raise HTTPException(status_code=500, detail=f"API returned non-JSON: {response.text}")
 
+            # results
+            if "result" not in data:
+                raise HTTPException(status_code=500, detail="API returned unexpected structure")
 
-    # results
-    if "result" not in data:
-        raise HTTPException(status_code=500, detail="API returned unexpected structure")
-
-    return data["result"]
+            result = data["result"]
+            if not isinstance(result, (dict, list)):
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"API did not return structured data. API response: {result}"
+                )
+            return result
+        
+        except (httpx.RequestError, httpx.TimeoutException) as e:
+            logger.warning(f"Attempt {attempt} failed: {e}")
+            if attempt < retries:
+                await asyncio.sleep(backoff * attempt)
+            else:
+                raise HTTPException(status_code=500, detail=f"Warsaw API failed after {retries} attempts") 
 
