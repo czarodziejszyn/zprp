@@ -1,13 +1,10 @@
-import os
-
-
 class DataRecord:
-    ALL_FEATURES = ["lat", "lon", "stop", "bike station",
-                    "pharmacy", "aed", "attraction", "theatre", "tree", "bush", "forest", "police station", "hotel", "dorm"]
+    ALL_FEATURES = ["lat", "lon", "stop", "bike station", "pharmacy", "aed",
+                    "attraction", "theatre", "tree", "bush", "forest",
+                    "police station", "hotel", "dorm"]
 
-    def __init__(self, lat: float, lon: float, radius: int, district: str):
+    def __init__(self, lat: float, lon: float, radius: int):
         self.features = self.get_features(lat, lon, radius)
-        self.label = self.get_label(district)
 
     def get_features(self, lat: float, lon: float, radius: int):
         import httpx
@@ -26,11 +23,3 @@ class DataRecord:
         features["lon"] = lon
         full_features = {ft: features.get(ft, 0) for ft in self.ALL_FEATURES}
         return full_features
-
-    def get_label(self, district):
-        import json
-        base_dir = os.path.dirname(__file__)
-        average_path = os.path.join(base_dir, "average_cost.json")
-        with open(average_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        return data[district]

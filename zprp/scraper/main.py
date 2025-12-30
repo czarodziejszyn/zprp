@@ -13,7 +13,5 @@ def main():
     write_offers_to_json(all_offers, OFFERS_JSON_PATH)
 
 
-
-
 if __name__ == "__main__":
     main()
