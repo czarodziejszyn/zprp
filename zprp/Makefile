@@ -61,7 +61,7 @@ create_environment:
 #################################################################################
 # BACKEND RULES                                                                 #
 #################################################################################
-.PHONY: backend stop_backend
+.PHONY: backend stop_backend update_api_cache
 
 ## Start backend and import data
 backend:
@@ -70,6 +70,10 @@ backend:
 ## Stop backend
 stop_backend:
 	$(MAKE) -C $(BACKEND_DIR) stop_backend
+
+## Update API cache
+update_api_cache:
+	$(MAKE) -C $(BACKEND_DIR) update_api_cache
 
 #################################################################################
 # Self Documenting Commands                                                     #

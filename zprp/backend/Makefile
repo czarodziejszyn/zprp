@@ -15,6 +15,13 @@ import_backend:
 	docker compose exec api bash -c "python -m db.import_data"
 	@echo ">>> Data import completed!"
 
+
+## Update API cache (overwrite api_cache.json)
+update_api_cache:
+	@echo ">>> Updating API cache..."
+	docker compose exec api bash -c "python -m cache.save_cache"
+	@echo ">>> API cache updated!"
+
 ## Stop and remove backend containers
 stop_backend:
 	@echo ">>> Stopping backend and removing containers..."
