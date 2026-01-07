@@ -19,9 +19,9 @@ Read your assigned API KEY.
 docker compose up -d --build
 ```
 
-API server will be available at: 
+API server will be available at:  
 http://localhost:8000/  
-API Swagger documentation will be available at:
+API Swagger documentation will be available at:  
 http://localhost:8000/docs  
 
 
