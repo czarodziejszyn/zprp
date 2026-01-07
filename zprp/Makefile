@@ -5,6 +5,7 @@
 PROJECT_NAME = zprp
 PYTHON_VERSION = 3.13.7
 PYTHON_INTERPRETER = python
+BACKEND_DIR = backend
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -58,10 +59,17 @@ create_environment:
 
 
 #################################################################################
-# PROJECT RULES                                                                 #
+# BACKEND RULES                                                                 #
 #################################################################################
+.PHONY: backend stop_backend
 
+## Start backend and import data
+backend:
+	$(MAKE) -C $(BACKEND_DIR) backend
 
+## Stop backend
+stop_backend:
+	$(MAKE) -C $(BACKEND_DIR) stop_backend
 
 #################################################################################
 # Self Documenting Commands                                                     #

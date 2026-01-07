@@ -14,26 +14,15 @@ Read your assigned API KEY.
 
 3. Make sure Docker is running.
 
-4. Start the backend from `zprp/backend directory`:
+4. Start the backend from `/zprp` directory:
+This will build and start the Docker containers and import data into the PostgreSQL database.
 ```
-docker compose up -d --build
-```
-
-API server will be available at:  
-http://localhost:8000/  
-API Swagger documentation will be available at:  
-http://localhost:8000/docs  
-
-
-5. Import data to PostgreSQL database:
-```
-docker compose exec api bash
-python -m db.import_data
+make backend
 ```
 
-6. Stop and remove backend Docker containers and volumes:
+5. Stop and remove backend Docker containers and volumes:
 ```
-docker compose down -v --remove-orphans
+make stop_backend
 ```
 
 

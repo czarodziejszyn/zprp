@@ -25,9 +25,9 @@ services:
     volumes:
       - .:/app
       - ../data_science:/app/data_science
+      - ../data:/app/data
       - ../models:/app/models
       - ../reports:/app/reports
-      - ../data/api_backup:/app/data/api_backup
       - ../logger:/app/logger
     command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
