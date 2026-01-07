@@ -8,5 +8,5 @@ logging.basicConfig(
     format="%(levelname)s | %(name)s | %(message)s",
 )
 
-# quiet some logs of httpx library 
+# quiet some logs of httpx library
 logging.getLogger("httpx").setLevel(logging.WARNING)

@@ -1,4 +1,5 @@
 import os
+
 import psycopg
 from psycopg.rows import dict_row
 
@@ -8,6 +9,7 @@ DB_NAME = os.getenv("POSTGRES_DB")
 DB_USER = os.getenv("POSTGRES_USER")
 DB_PASS = os.getenv("POSTGRES_PASSWORD")
 
+
 def get_conn():
     return psycopg.connect(
         host=DB_HOST,
@@ -15,12 +17,14 @@ def get_conn():
         dbname=DB_NAME,
         user=DB_USER,
         password=DB_PASS,
-        row_factory=dict_row
+        row_factory=dict_row,
     )
+
 
 def init_db():
     with get_conn() as conn:
-        conn.execute("""
+        conn.execute(
+            """
             CREATE EXTENSION IF NOT EXISTS postgis;
 
             CREATE TABLE city_obj (
@@ -29,10 +33,10 @@ def init_db():
                 latitude DOUBLE PRECISION,
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
-            );                                      
+            );
 
             CREATE INDEX city_obj_geom_gix
-            ON city_obj USING GIST (geom); 
+            ON city_obj USING GIST (geom);
 
 
             CREATE TABLE IF NOT EXISTS offers (
@@ -42,10 +46,11 @@ def init_db():
                 price INTEGER,
                 area_m2 NUMERIC,
                 price_per_m2 NUMERIC,
-                address TEXT,    
+                address TEXT,
                 latitude DOUBLE PRECISION,
                 longitude DOUBLE PRECISION,
                 geom GEOGRAPHY(POINT, 4326)
-            );                                         
+            );
 
-        """)
+        """
+        )

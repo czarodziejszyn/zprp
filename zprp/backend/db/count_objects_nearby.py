@@ -1,5 +1,6 @@
 from .db import get_conn
 
+
 def count_objects_nearby(lat: float, lon: float, radius_meters: int):
     """
     Count objects of different types nearby a given location.
@@ -15,7 +16,8 @@ def count_objects_nearby(lat: float, lon: float, radius_meters: int):
             - count (int): Number of objects of this type within the radius
     """
     with get_conn() as conn:
-        rows = conn.execute("""
+        rows = conn.execute(
+            """
             SELECT
                 objtype,
                 COUNT(*) AS count
@@ -27,9 +29,7 @@ def count_objects_nearby(lat: float, lon: float, radius_meters: int):
             )
             GROUP BY objtype
             ORDER BY count DESC;
-        """, (
-            lon,
-            lat,
-            radius_meters
-        )).fetchall() 
+        """,
+            (lon, lat, radius_meters),
+        ).fetchall()
     return rows

@@ -1,8 +1,9 @@
-from dash import callback, Output, Input, State, no_update, dcc, html
-import dash
-import httpx
 import base64
 import json as _json
+
+import dash
+from dash import Input, Output, State, callback, dcc, html, no_update
+import httpx
 
 
 def _point_in_ring(lat: float, lon: float, ring_latlng):
@@ -13,9 +14,13 @@ def _point_in_ring(lat: float, lon: float, ring_latlng):
     inside = False
     j = len(ring_latlng) - 1
     for i in range(len(ring_latlng)):
-        yi = float(ring_latlng[i][0]); xi = float(ring_latlng[i][1])
-        yj = float(ring_latlng[j][0]); xj = float(ring_latlng[j][1])
-        intersects = ((yi > y) != (yj > y)) and (x < (xj - xi) * (y - yi) / ((yj - yi) if (yj - yi) != 0 else 1e-12) + xi)
+        yi = float(ring_latlng[i][0])
+        xi = float(ring_latlng[i][1])
+        yj = float(ring_latlng[j][0])
+        xj = float(ring_latlng[j][1])
+        intersects = ((yi > y) != (yj > y)) and (
+            x < (xj - xi) * (y - yi) / ((yj - yi) if (yj - yi) != 0 else 1e-12) + xi
+        )
         if intersects:
             inside = not inside
         j = i
@@ -159,12 +164,15 @@ def analyze_point(analyze_clicks, close_clicks, backdrop_clicks, clicked_point):
 
     # /prices
     try:
-        r = httpx.get("http://localhost:8000/prices", params={"lat": lat, "lon": lon}, timeout=20.0)
+        r = httpx.get(
+            "http://localhost:8000/prices", params={"lat": lat, "lon": lon}, timeout=20.0
+        )
         if r.status_code == 200:
             data = r.json()
             prices_raw = _json.dumps(data, ensure_ascii=False, indent=2)
             pred = data.get("predicted_price")
             real = data.get("real_price")
+
             def _fmt_pln(v):
                 try:
                     val = float(v)
@@ -172,21 +180,47 @@ def analyze_point(analyze_clicks, close_clicks, backdrop_clicks, clicked_point):
                     return f"{s} zł"
                 except Exception:
                     return str(v)
+
             pred_txt = _fmt_pln(pred)
             real_txt = _fmt_pln(real)
-            modal_prices_children = html.Div([
-                html.Div("Ceny", style={"fontWeight": 700, "marginBottom": 6, "fontSize": 14}),
-                html.Div([
-                    html.Div([
-                        html.Div("Prognoza", style={"fontSize": 12, "color": "#555"}),
-                        html.Div(pred_txt, style={"fontWeight": 700, "fontSize": 20}),
-                    ], style={"flex": 1, "background": "#f7f7f9", "border": "1px solid #eee", "borderRadius": "6px", "padding": "8px 10px"}),
-                    html.Div([
-                        html.Div("Rzeczywista", style={"fontSize": 12, "color": "#555"}),
-                        html.Div(real_txt, style={"fontWeight": 700, "fontSize": 20}),
-                    ], style={"flex": 1, "background": "#f7f7f9", "border": "1px solid #eee", "borderRadius": "6px", "padding": "8px 10px"}),
-                ], style={"display": "flex", "gap": 12}),
-            ])
+            modal_prices_children = html.Div(
+                [
+                    html.Div("Ceny", style={"fontWeight": 700, "marginBottom": 6, "fontSize": 14}),
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                    html.Div("Prognoza", style={"fontSize": 12, "color": "#555"}),
+                                    html.Div(pred_txt, style={"fontWeight": 700, "fontSize": 20}),
+                                ],
+                                style={
+                                    "flex": 1,
+                                    "background": "#f7f7f9",
+                                    "border": "1px solid #eee",
+                                    "borderRadius": "6px",
+                                    "padding": "8px 10px",
+                                },
+                            ),
+                            html.Div(
+                                [
+                                    html.Div(
+                                        "Rzeczywista", style={"fontSize": 12, "color": "#555"}
+                                    ),
+                                    html.Div(real_txt, style={"fontWeight": 700, "fontSize": 20}),
+                                ],
+                                style={
+                                    "flex": 1,
+                                    "background": "#f7f7f9",
+                                    "border": "1px solid #eee",
+                                    "borderRadius": "6px",
+                                    "padding": "8px 10px",
+                                },
+                            ),
+                        ],
+                        style={"display": "flex", "gap": 12},
+                    ),
+                ]
+            )
         else:
             modal_prices_children = f"Błąd /prices: HTTP {r.status_code}"
             prices_raw = modal_prices_children

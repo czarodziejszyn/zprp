@@ -1,7 +1,8 @@
 import json
-import random
 import os
-from shapely.geometry import shape, Point
+import random
+
+from shapely.geometry import Point, shape
 
 base_dir = os.path.dirname(__file__)
 geojson_path = os.path.join(base_dir, "warszawa-dzielnice.geojson")
@@ -21,7 +22,7 @@ min_lat, max_lat = 52.05, 52.22
 
 
 def random_warsaw_loc():
-    """"Returns random point from Warsaw (lat, lon) and its' district name."""
+    """ "Returns random point from Warsaw (lat, lon) and its' district name."""
     while True:
         lon = random.uniform(min_lon, max_lon)
         lat = random.uniform(min_lat, max_lat)

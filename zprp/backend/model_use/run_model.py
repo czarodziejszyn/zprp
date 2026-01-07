@@ -1,11 +1,11 @@
+import json
+import os
 import pickle
 import sys
-import os
-import json
-sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../..")))
-from data_science import get_random_loc
-from data_science import data_record
+
+from data_science import data_record, get_random_loc
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 
 MODEL_PATH = "models/model.pkl"

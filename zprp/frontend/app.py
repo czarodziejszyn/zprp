@@ -1,7 +1,8 @@
+import json
+import os
+
 from dash import Dash
 from utils.layout import create_layout
-import os
-import json
 
 WARSAW_CENTER = {"lat": 52.2297, "lon": 21.0122}
 WORLD_RECT = [
@@ -23,6 +24,7 @@ def generate_layout():
 
     area_outside_warsaw = [WORLD_RECT] + warsaw_border
     return create_layout(WARSAW_CENTER, area_outside_warsaw)
+
 
 if __name__ == "__main__":
     app = Dash(__name__, suppress_callback_exceptions=True, title="ZPRP Frontend")

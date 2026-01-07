@@ -1,22 +1,23 @@
 import asyncio
-from api.aeds import fetch_aeds
-from api.theatres import fetch_theatres
-from api.attractions import fetch_attractions
-from api.nature import fetch_nature
-from api.police_stations import fetch_police_stations
-from api.pharmacies import fetch_pharmacies
-from api.stops import fetch_stops
-from api.bike_stations import fetch_bike_stations
+import logging
+
 from api.accomodations import fetch_accommodations
+from api.aeds import fetch_aeds
+from api.attractions import fetch_attractions
+from api.bike_stations import fetch_bike_stations
+from api.nature import fetch_nature
+from api.pharmacies import fetch_pharmacies
+from api.police_stations import fetch_police_stations
+from api.stops import fetch_stops
+from api.theatres import fetch_theatres
 from pydantic import BaseModel
+
+from logger import logging_config  # noqa: F401
 
 from .json_cache import save_api_cache_json
 
-from logger import logging_config 
-import logging
-
-
 logger = logging.getLogger(__name__)
+
 
 def serialize(obj):
     if isinstance(obj, BaseModel):
@@ -39,8 +40,6 @@ async def fetch_api_data():
     pharmacies = await fetch_pharmacies()
     stops = await fetch_stops()
 
-
-
     cache = {
         "theatre": serialize(theatres),
         "aed": serialize(aeds),
@@ -56,15 +55,13 @@ async def fetch_api_data():
     return cache
 
 
-
-
 async def main():
     try:
         data = await fetch_api_data()
         save_api_cache_json(data)
     except Exception:
         logger.exception("API cache update failed")
-        return 
+        return
 
     logger.info("API cache updated successfully")
 

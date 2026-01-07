@@ -1,14 +1,14 @@
-import re
+import logging
 import os
+import re
+
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import logging
-
+from selenium.webdriver.support.ui import WebDriverWait
 
 OTODOM_URL = os.getenv("OTODOM_URL")
 CHROME_BINARY_PATH = os.getenv("CHROME_BINARY_PATH")
@@ -34,8 +34,7 @@ def scrap_offers(max_offer_pages):
     service = Service(CHROMEDRIVER_PATH)
     driver = webdriver.Chrome(service=service, options=options)
 
-
-    # Get offers 
+    # Get offers
     all_offers = []
     seen_ids = set()
     for page in range(1, max_offer_pages + 1):
@@ -48,18 +47,17 @@ def scrap_offers(max_offer_pages):
             WebDriverWait(driver, 2).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Akceptuj')]"))
             ).click()
-        except:
+        except (TimeoutError, Exception):
+            # ignore if cookie button is found or not clickable
             pass
-
 
         try:
             WebDriverWait(driver, 3).until(
                 EC.presence_of_element_located((By.TAG_NAME, "article"))
             )
-        except:
+        except (TimeoutError, Exception):
             logger.info("  -> No offers found – end.")
             break
-
 
         # Find offers
         offers = driver.find_elements(By.TAG_NAME, "article")
@@ -67,17 +65,16 @@ def scrap_offers(max_offer_pages):
             logger.info("  -> No offers found – end.")
             break
 
-
         for offer in offers:
             try:
                 full_text = offer.text
 
-                # Get url 
+                # Get url
                 try:
                     link = offer.find_element(By.XPATH, ".//a[contains(@href,'/oferta/')]")
                     url = link.get_attribute("href")
                     offer_id = url.split("-")[-1]
-                except Exception as e:
+                except Exception:
                     logger.exception("Skipping offer - url not found")
                     continue
 
@@ -89,9 +86,8 @@ def scrap_offers(max_offer_pages):
                 # Get title
                 try:
                     title = url.split("/")[-1].replace("-", " ")
-                except:
+                except IndexError:
                     title = ""
-
 
                 # Get price
                 try:
@@ -99,16 +95,10 @@ def scrap_offers(max_offer_pages):
                         By.XPATH, ".//span[@data-sentry-element='MainPrice']"
                     ).text
 
-                    price = int(
-                        price_text
-                        .replace("zł", "")
-                        .replace("\xa0", "")
-                        .replace(" ", "")
-                    )
+                    price = int(price_text.replace("zł", "").replace("\xa0", "").replace(" ", ""))
 
-                except:
+                except (AttributeError, ValueError):
                     price = None
-
 
                 # Get area
                 try:
@@ -117,18 +107,16 @@ def scrap_offers(max_offer_pages):
                         area = float(area_match.group(1).replace(",", "."))
                     else:
                         area = None
-                except:
+                except (TypeError, ValueError):
                     area = None
-
 
                 # Get address
                 try:
                     address = offer.find_element(
                         By.XPATH, ".//p[@data-sentry-component='Address']"
                     ).text
-                except:
+                except (AttributeError, Exception):
                     address = ""
-
 
                 # Skipping ads / investemnts offers
                 if price is None or area is None:
@@ -138,19 +126,19 @@ def scrap_offers(max_offer_pages):
                 if address is None:
                     continue
 
-
                 # Get price / m2
                 price_m2 = round(price / area, 2) if price and area else None
 
-                all_offers.append({
-                    "title": title,
-                    "url": url,
-                    "price": price,
-                    "area_m2": area,
-                    "price_per_m2": price_m2,
-                    "address": address
-                })
-
+                all_offers.append(
+                    {
+                        "title": title,
+                        "url": url,
+                        "price": price,
+                        "area_m2": area,
+                        "price_per_m2": price_m2,
+                        "address": address,
+                    }
+                )
 
             except Exception as e:
                 logger.exception("Exception in the offer:", e)
@@ -163,7 +151,3 @@ def write_offers_to_json(offers, file_path):
     df = pd.DataFrame(offers)
     df.to_json(file_path, orient="records", force_ascii=False, indent=2)
     logger.info(f"[OK] Written {len(offers)} records to {file_path}")
-
-    
-
-

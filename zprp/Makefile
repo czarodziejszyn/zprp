@@ -30,15 +30,15 @@ clean:
 ## Lint using flake8, black, and isort (use `make format` to do formatting)
 .PHONY: lint
 lint:
-	flake8 data-science
-	isort --check --diff data-science
-	black --check data-science
+	flake8 .
+	isort --check --diff .
+	black --check .
 
 ## Format source code with black
 .PHONY: format
 format:
-	isort data-science
-	black data-science
+	isort .
+	black .
 
 
 
