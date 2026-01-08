@@ -6,6 +6,9 @@ PROJECT_NAME = zprp
 PYTHON_VERSION = 3.13.7
 PYTHON_INTERPRETER = python
 BACKEND_DIR = backend
+GEOCODING_DIR = geocoding
+SCRAPER_DIR = scraper
+
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -74,6 +77,18 @@ stop_backend:
 ## Update API cache
 update_api_cache:
 	$(MAKE) -C $(BACKEND_DIR) update_api_cache
+
+
+#################################################################################
+# OFFERS CACHE RULES                                                            #
+#################################################################################
+.PHONY: update_offers_cache
+
+## Update offers cache (scrap offers, then geocode them)
+update_offers_cache:
+	$(MAKE) -C $(SCRAPER_DIR) scrape
+	$(MAKE) -C $(GEOCODING_DIR) geocode
+
 
 #################################################################################
 # Self Documenting Commands                                                     #
