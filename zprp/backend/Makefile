@@ -36,6 +36,12 @@ backend: start_backend import_backend
 api_tests:
 	pytest tests/test_api.py
 
+fetch_api_tests:
+	pytest tests/test_fetch_warsaw_api.py
+
+
 cache_tests:
 	pytest tests/test_cache.py
+
+
 
