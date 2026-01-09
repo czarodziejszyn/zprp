@@ -24,4 +24,5 @@ scrape: build_scraper run_scraper stop_scraper
 
 
 scraper_tests:
-c
+	pytest tests/test_scraper.py
+	@echo ">>> All scraper tests are done!"

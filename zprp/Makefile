@@ -46,10 +46,11 @@ format:
 
 
 
-## Run tests
-.PHONY: test
-test:
-	python -m pytest tests
+## Run unit tests
+.PHONY: unit_tests backend_tests scraper_tests geocoding_tests
+unit_tests: backend_tests scraper_tests geocoding_tests
+
+
 
 
 ## Set up Python interpreter environment
