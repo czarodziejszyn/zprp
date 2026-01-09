@@ -65,7 +65,7 @@ create_environment:
 #################################################################################
 # BACKEND RULES                                                                 #
 #################################################################################
-.PHONY: backend stop_backend update_api_cache backend_tests
+.PHONY: backend stop_backend update_api_cache backend_tests benchmark backend_benchmark
 
 ## Start backend and import data
 backend:
@@ -82,6 +82,13 @@ update_api_cache:
 backend_tests:
 	$(MAKE) -C $(BACKEND_DIR) backend_tests
 
+
+backend_benchmark: backend
+	@echo ">>> Waiting for API to be fully ready..."
+	@python -c "import time; time.sleep(5)"
+	$(MAKE) -C $(BACKEND_DIR) benchmark
+	@echo ">>> Closing API..."
+	$(MAKE) -C $(BACKEND_DIR) stop_backend
 
 #################################################################################
 # OFFERS CACHE RULES                                                            #

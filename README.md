@@ -84,16 +84,16 @@ make update_offers_cache
 # How to run tests:
 To ensure the system is stable and all modules are functioning correctly, you should run the automated test suite.
 
-### Prerequisites
+## Prerequisites
 Before running the tests, ensure you have installed all necessary dependencies:
 ```
 pip install -r requirements.txt
 ```
 
-### Running the tests
+## Running the tests
 TODO
 
-#### Unit testing
+### Unit testing
 The project uses pytest for testing. You can execute the full suite using command:
 ```
 make unit_tests

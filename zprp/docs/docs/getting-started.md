@@ -23,3 +23,8 @@ make backend_tests
 make scraper_tests
 make geocoding_tests
 ```
+
+* Run API benchmarks:
+```
+make backend_benchmark
+```

@@ -51,3 +51,5 @@ backend_tests: api_tests fetch_api_tests cache_tests db_tests db_analysis_tests
 	@echo ">>> All backend tests are done!"
 
 
+benchmark:
+	python tests/performance_benchmark.py
