@@ -1,15 +1,18 @@
-import json
 import os
 import pickle
 import sys
+from db.get_avg_real_price import get_avg_real_price
 
-from data_science import data_record, get_random_loc
+BASE_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../..")
+)
+sys.path.append(BASE_DIR)
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+from data_science import data_record
 
 
 MODEL_PATH = "models/model.pkl"
-RADIUS = 500
+RADIUS = 700
 
 
 def calculate_prices(lat: float, lon: float):
@@ -18,13 +21,9 @@ def calculate_prices(lat: float, lon: float):
     Returns: (predicted_price: float, real_price: float)
     Runs the model and computes pricing values based on coordinates.
     """
-    district = get_random_loc.get_district(lat, lon)
-    record = data_record.DataRecord(lat, lon, RADIUS, district)
+    record = data_record.DataRecord(lat, lon, RADIUS)
     features = list(record.features.values())
-    print(features)
-    with open("data_science/average_cost.json") as f:
-        costs = json.load(f)
-    label = costs[district]
+    label = get_avg_real_price(lat, lon, 500)
     with open(MODEL_PATH, "rb") as f:
         model = pickle.load(f)
     y_pred = model.predict([features])
@@ -36,4 +35,4 @@ def create_chart():
     Returns: file_path (str)
     Generates a chart image and saves it to disk. Returns the path to the generated .png file.
     """
-    return "reports/figures/figure.png"
+    return "reports/figures/chart.png"
