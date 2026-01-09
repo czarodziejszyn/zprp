@@ -18,5 +18,3 @@ def test_modal_close_with_backdrop(page, base_url: str):
     page.wait_for_timeout(200)
     style = page.locator("#analysis-modal").evaluate("el => getComputedStyle(el).display")
     assert style == "none"
-
-

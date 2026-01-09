@@ -1,15 +1,13 @@
 import os
 import pickle
 import sys
+
 from db.get_avg_real_price import get_avg_real_price
 
-BASE_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../..")
-)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 sys.path.append(BASE_DIR)
 
 from data_science import data_record
-
 
 MODEL_PATH = "models/model.pkl"
 RADIUS = 700

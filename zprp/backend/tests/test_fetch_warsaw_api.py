@@ -1,19 +1,19 @@
-import pytest
-import respx
-import httpx
-from fastapi import HTTPException
 from unittest.mock import patch
 
-from api.fetch_warsaw_api import get_warsaw_api_obj_data_result
 from api.accomodations import fetch_accommodations
 from api.aeds import fetch_aeds
 from api.attractions import fetch_attractions
 from api.bike_stations import fetch_bike_stations
+from api.fetch_warsaw_api import get_warsaw_api_obj_data_result
 from api.nature import fetch_nature
 from api.pharmacies import fetch_pharmacies
 from api.police_stations import fetch_police_stations
 from api.stops import fetch_stops
 from api.theatres import fetch_theatres
+from fastapi import HTTPException
+import httpx
+import pytest
+import respx
 
 with patch.dict("os.environ", {"WARSZAWA_API_KEY": "test_key"}):
     pass
@@ -30,21 +30,21 @@ async def test_get_warsaw_api_data_success():
 
     assert result == [{"id": 1}]
 
+
 @pytest.mark.asyncio
 @respx.mock
 async def test_get_warsaw_api_data_retry_logic():
     url = "https://api.um.warszawa.pl/api/action/tourism_attraction_get/"
-    
+
     respx.get(url).side_effect = [
-        httpx.TimeoutException("Timeout!"), 
-        httpx.Response(200, json={"result": [{"id": "success"}]})
+        httpx.TimeoutException("Timeout!"),
+        httpx.Response(200, json={"result": [{"id": "success"}]}),
     ]
 
     with patch("asyncio.sleep", return_value=None):
         result = await get_warsaw_api_obj_data_result("attraction")
-    
-    assert result == [{"id": "success"}]
 
+    assert result == [{"id": "success"}]
 
 
 @pytest.mark.asyncio
@@ -55,7 +55,7 @@ async def test_error_status_code_500():
 
     with pytest.raises(HTTPException) as excinfo:
         await get_warsaw_api_obj_data_result("attraction")
-    
+
     assert excinfo.value.status_code == 500
     assert "Warsaw API error: 404" in excinfo.value.detail
 
@@ -68,7 +68,7 @@ async def test_error_non_json_response():
 
     with pytest.raises(HTTPException) as excinfo:
         await get_warsaw_api_obj_data_result("attraction")
-    
+
     assert "API returned non-JSON" in excinfo.value.detail
 
 
@@ -80,7 +80,7 @@ async def test_error_missing_result_key():
 
     with pytest.raises(HTTPException) as excinfo:
         await get_warsaw_api_obj_data_result("attraction")
-    
+
     assert "API returned unexpected structure" in excinfo.value.detail
 
 
@@ -92,7 +92,7 @@ async def test_error_invalid_result_type():
 
     with pytest.raises(HTTPException) as excinfo:
         await get_warsaw_api_obj_data_result("attraction")
-    
+
     assert "API did not return structured data" in excinfo.value.detail
 
 
@@ -105,12 +105,9 @@ async def test_error_max_retries_exceeded():
     with patch("asyncio.sleep", return_value=None):
         with pytest.raises(HTTPException) as excinfo:
             await get_warsaw_api_obj_data_result("attraction")
-    
+
     assert excinfo.value.status_code == 500
     assert "Warsaw API failed after 3 attempts" in excinfo.value.detail
-
-
-
 
 
 # FETCHING SPECIFIC CITY OBJECT
@@ -118,11 +115,7 @@ async def test_error_max_retries_exceeded():
 async def test_fetch_accommodations_parsing():
     fake_api_result = {
         "featureMemberList": [
-            {
-                "geometry": {
-                    "coordinates": [{"latitude": "52.2", "longitude": "21.0"}]
-                }
-            }
+            {"geometry": {"coordinates": [{"latitude": "52.2", "longitude": "21.0"}]}}
         ]
     }
 
@@ -138,13 +131,7 @@ async def test_fetch_accommodations_parsing():
 
 @pytest.mark.asyncio
 async def test_fetch_aeds_parsing():
-    fake_data = [
-        {
-            "geometry": {
-                "coordinates": [[21.0, 52.2]]
-            }
-        }
-    ]
+    fake_data = [{"geometry": {"coordinates": [[21.0, 52.2]]}}]
     with patch("api.aeds.get_warsaw_api_obj_data_result", return_value=fake_data):
         results = await fetch_aeds()
         assert len(results) == 1
@@ -152,11 +139,10 @@ async def test_fetch_aeds_parsing():
         assert results[0].longitude == 21.0
         assert results[0].objtype == "aeds"
 
+
 @pytest.mark.asyncio
 async def test_fetch_attractions_parsing():
-    fake_data = [
-        {"latlng": {"lat": "52.2", "lng": "21.0"}}
-    ]
+    fake_data = [{"latlng": {"lat": "52.2", "lng": "21.0"}}]
     with patch("api.attractions.get_warsaw_api_obj_data_result", return_value=fake_data):
         results = await fetch_attractions()
         assert results[0].latitude == 52.2
@@ -182,10 +168,11 @@ async def test_fetch_bike_stations_404():
             await fetch_bike_stations()
         assert exc.value.status_code == 404
 
+
 @pytest.mark.asyncio
 async def test_fetch_nature_parsing():
     fake_record = {"records": [{"y_wgs84": "52.2", "x_wgs84": "21.0"}]}
-    
+
     with patch("api.nature.get_warsaw_api_obj_data_result", return_value=fake_record):
         results = await fetch_nature()
         assert len(results) == 3
@@ -195,6 +182,7 @@ async def test_fetch_nature_parsing():
         assert "tree" in types
         assert "bush" in types
         assert "forest" in types
+
 
 @pytest.mark.asyncio
 async def test_fetch_pharmacies_parsing():
@@ -229,7 +217,7 @@ async def test_fetch_stops_parsing():
             "values": [
                 {"key": "szer_geo", "value": "52.23"},
                 {"key": "dlug_geo", "value": "21.01"},
-                {"key": "nazwa_zespolu", "value": "Centrum"}
+                {"key": "nazwa_zespolu", "value": "Centrum"},
             ]
         }
     ]
@@ -243,11 +231,7 @@ async def test_fetch_stops_parsing():
 
 @pytest.mark.asyncio
 async def test_fetch_theatres_parsing():
-    fake_data = {
-        "featureMemberCoordinates": [
-            {"latitude": "52.24", "longitude": "21.02"}
-        ]
-    }
+    fake_data = {"featureMemberCoordinates": [{"latitude": "52.24", "longitude": "21.02"}]}
     with patch("api.theatres.get_warsaw_api_obj_data_result", return_value=fake_data):
         results = await fetch_theatres()
         assert len(results) == 1

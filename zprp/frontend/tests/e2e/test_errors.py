@@ -1,4 +1,5 @@
 import os
+
 from playwright.sync_api import Route
 
 
@@ -15,5 +16,3 @@ def test_prices_error_message_when_blocked(page, base_url: str):
     page.wait_for_timeout(2500)
     txt = page.locator("#modal-prices").inner_text() or ""
     assert "Błąd /prices: HTTP 500" in txt or "500" in txt
-
-

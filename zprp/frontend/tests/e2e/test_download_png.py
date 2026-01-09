@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 from playwright.sync_api import expect
 
 
@@ -20,5 +21,3 @@ def test_download_chart_png(page, base_url: str, tmp_path: Path):
             assert target.exists() and target.stat().st_size > 0
         except Exception:
             expect(page.locator("#download-chart-modal-btn")).to_be_visible()
-
-

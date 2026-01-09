@@ -28,5 +28,3 @@ def test_search_moves_marker(page, base_url: str):
             changed = True
             break
     assert changed
-
-

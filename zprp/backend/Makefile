@@ -32,16 +32,22 @@ backend: start_backend import_backend
 	@echo ">>> Backend is ready!"
 
 
-
 api_tests:
 	pytest tests/test_api.py
 
 fetch_api_tests:
 	pytest tests/test_fetch_warsaw_api.py
 
-
 cache_tests:
 	pytest tests/test_cache.py
 
+db_tests:
+	pytest tests/test_db.py
+
+db_analysis_tests:
+	pytest tests/test_db_analysis.py
+
+backend_tests: api_tests fetch_api_tests cache_tests db_tests db_analysis_tests
+	@echo ">>> All backend tests are done!"
 
 
