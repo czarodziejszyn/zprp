@@ -85,13 +85,18 @@ backend_tests:
 #################################################################################
 # OFFERS CACHE RULES                                                            #
 #################################################################################
-.PHONY: update_offers_cache
+.PHONY: update_offers_cache scraper_tests geocoding_tests
 
 ## Update offers cache (scrap offers, then geocode them)
 update_offers_cache:
 	$(MAKE) -C $(SCRAPER_DIR) scrape
 	$(MAKE) -C $(GEOCODING_DIR) geocode
 
+scraper_tests:
+	$(MAKE) -C $(SCRAPER_DIR) scraper_tests
+
+geocoding_tests:
+	$(MAKE) -C $(GEOCODING_DIR) geocoding_tests
 
 #################################################################################
 # Self Documenting Commands                                                     #

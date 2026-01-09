@@ -42,6 +42,11 @@ run_geocoding:
 	@echo ">>> Geocoding finished."
 
 ## Full geocoding pipeline:
-## start Nominatim → geocode → stop Nominatim
+## start Nominatim -> geocode -> stop Nominatim
 geocode: nominatim_start build_geocoding run_geocoding nominatim_stop
 	@echo ">>> Geocoding pipeline completed!"
+
+
+geocoding_tests:
+	pytest tests/test_geocoding.py
+	@echo ">>> All geocoding tests are done!"

@@ -21,3 +21,7 @@ stop_scraper:
 ## Full scraping pipeline
 scrape: build_scraper run_scraper stop_scraper
 	@echo ">>> Scraping pipeline completed!"
+
+
+scraper_tests:
+c
