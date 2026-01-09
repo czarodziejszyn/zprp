@@ -8,7 +8,7 @@
 
 ## Modules
 /zprp
-├── backend/        # REST API and ML model integration
+├── backend/        # API and ML model integration
 │   ├── api/        # Backend API request handlers
 │   ├── cache/      # Warsaw API response caching layer using a local JSON file
 │   ├── db/         # Database connections and schema management
