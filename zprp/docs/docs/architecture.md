@@ -1,0 +1,1 @@
+# schemat blokowy rpzeplywu danych etc

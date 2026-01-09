@@ -2,7 +2,7 @@
 
 ## Description
 
-dane po warszawsku
+dane po warszawsku. tuytulowa strona do wszystkich stron
 
 ## Commands
 

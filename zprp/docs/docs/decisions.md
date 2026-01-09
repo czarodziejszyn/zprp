@@ -1,0 +1,1 @@
+# analiza literatury, wybor modelu etc
