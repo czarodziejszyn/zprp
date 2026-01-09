@@ -1,3 +1,12 @@
+# About the project
+TODO: goals, functions etc
+
+
+# Data sources
+- Warsaw Open Data Portal (API) – municipal and infrastructure data  
+- Otodom – apartment listings and prices 
+- OpenStreetMap (Warsaw PBF extract) – geospatial data used for local Nominatim-based geocoding
+
 # Application User Manual
 
 # How to run the application:
@@ -71,8 +80,3 @@ This command replaces the existing `./raw/otodom_warszawa.json` and `./processed
 ```
 make update_offers_cache
 ```
-
-
-
-
-
