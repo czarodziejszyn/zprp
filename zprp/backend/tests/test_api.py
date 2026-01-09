@@ -24,8 +24,37 @@ def test_nearby_endpoint(mock_db_call):
     mock_db_call.assert_called_once_with(lat, lon, rad)
 
 
+
+@patch("api.main.get_avg_real_price")
+def test_real_price_endpoint(mock_db_call):
+    lat = 52.2
+    lon = 21.0
+    rad = 15
+    expected_price = 12500.50
+    
+    mock_db_call.return_value = expected_price
+
+    url = f"/real_price?lat={lat}&lon={lon}&radius={rad}"
+    response = client.get(url)
+    
+    assert response.status_code == 200
+    assert response.json() == expected_price
+    
+    mock_db_call.assert_called_once_with(lat, lon, rad)
+
+
+@patch("api.main.get_avg_real_price")
+def test_real_price_default_radius(mock_db_call):
+    lat, lon = 52.2, 21.0
+    mock_db_call.return_value = 10000.0
+
+    response = client.get(f"/real_price?lat={lat}&lon={lon}")
+    assert response.status_code == 200
+    mock_db_call.assert_called_once_with(lat, lon, 10)
+
+
 @patch("api.main.calculate_prices")
-def test_prices(mock_model):
+def test_get_prices(mock_model):
     lat, lon = 52.2, 21.0
     expected_predicted = 10000.0
     expected_real = 9500.0

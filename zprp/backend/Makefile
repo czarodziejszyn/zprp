@@ -36,3 +36,6 @@ backend: start_backend import_backend
 api_tests:
 	pytest tests/test_api.py
 
+cache_tests:
+	pytest tests/test_cache.py
+
