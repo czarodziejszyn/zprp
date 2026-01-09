@@ -31,3 +31,8 @@ stop_backend:
 backend: start_backend import_backend
 	@echo ">>> Backend is ready!"
 
+
+
+api_tests:
+	pytest tests/test_api.py
+
