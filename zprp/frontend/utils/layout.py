@@ -1,5 +1,6 @@
 from dash import dcc, html
 import dash_leaflet as dl
+import utils.callbacks
 
 
 def build_analysis_modal():

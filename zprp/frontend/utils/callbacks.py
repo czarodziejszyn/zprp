@@ -111,12 +111,16 @@ def handle_click(click_latlng, dblclick_data, n_addr_clicks, addr_value, mask_ri
         return None
 
     ctx = dash.callback_context
-    trigger_id = ctx.triggered[0]["prop_id"].split(".")[0] if ctx and ctx.triggered else None
+    trigger_prop = ctx.triggered[0]["prop_id"] if ctx and ctx.triggered else ""
+    trigger_id = trigger_prop.split(".")[0] if trigger_prop else None
+    trigger_attr = trigger_prop.split(".")[1] if trigger_prop and "." in trigger_prop else None
 
     latlng_pair = None
     if trigger_id == "addr-search-btn" and n_addr_clicks and addr_value:
         latlng_pair = _geocode_address_to_city_latlon(addr_value, mask_rings)
-    elif trigger_id == "leaflet-map":
+    elif trigger_id == "leaflet-map" and trigger_attr == "click_lat_lng":
+        latlng_pair = _pair(click_latlng)
+    elif trigger_id == "leaflet-map" and trigger_attr == "dblclickData":
         latlng_pair = _from_dblclick(dblclick_data)
     if not latlng_pair:
         return no_update, no_update, no_update, no_update, no_update, no_update
