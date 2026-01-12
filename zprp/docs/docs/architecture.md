@@ -7,6 +7,8 @@
 ## Data flow
 
 ## Modules
+`
+```
 /zprp
 ├── backend/        # API and ML model integration
 │   ├── api/        # Backend API request handlers
@@ -22,3 +24,4 @@
 ├── reports/        # Reports and visualizations
 ├── scraping/       # Web scraper (Otodom)
 └── tests/          # Unit and integration tests
+`
