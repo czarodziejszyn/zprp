@@ -72,6 +72,16 @@ setup: create_environment requirements
 	@echo "Environment ready."
 
 
+.PHONY: run run_frontend
+
+## Run full application (backend + frontend)
+run:
+	@echo ">>> Starting backend..."
+	$(MAKE) backend
+	@echo ">>> Starting frontend..."
+	$(VENV_PYTHON) frontend/app.py
+
+
 
 #################################################################################
 # BACKEND RULES                                                                 #
