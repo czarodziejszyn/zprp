@@ -1,10 +1,17 @@
-# schemat blokowy rpzeplywu danych etc
-# mapa wsyztskich folderow, co robia etc
-
-
 # System architecture
 
 ## Data flow
+
+1. User selects address in Warsaw using the web application.
+2. Frontend application converts selected address into geographic coordinates.
+3. Frontend sends coordinates to the backend API.
+4. Backend triggers machine learning model to predict the apartment price per square meter for given location.
+5. At the same time, backend selects offers from within 500m radius of given coordinates and calculates average price per square meter.
+6. Backend exposes the following data via its API:
+  - predicted price per square meter,
+  - real price per square meter,
+  - feature importances chart.
+7. Frontend retrieves data from backend API and displays it to the user.
 
 ## Modules
 ```
