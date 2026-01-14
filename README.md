@@ -13,11 +13,17 @@ TODO: goals, functions etc
 # How to run the application:
 
 After cloning this repository go to `zprp/` directory:
-```cd zprp```
+```
+cd zprp
+```
 To setup environment:
-```make setup```
+```
+make setup
+```
 To run the app:
-```make run```
+```
+make run
+```
 
 ## Frontend — how to run
 
