@@ -13,6 +13,8 @@
   - feature importances chart.
 7. Frontend retrieves data from backend API and displays it to the user.
 
+![System workflow diagram](flow_chart_zprp.png)
+
 ## Modules
 ```
 /zprp
