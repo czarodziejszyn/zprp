@@ -24,7 +24,7 @@ A web application designed to analyze the impact of urban infrastructure on real
 
 After cloning this repository go to `zprp/` directory:
 ```
-cd zprp
+cd zprp/zprp
 ```
 Before first launch, do first 4 steps from [backend section](#how-to-run-backend) and setup environment:
 ```
