@@ -1,0 +1,6 @@
+offer_debug.html
+zprp/scraper/config.py
+zprp/geocoding/Warsaw.osm.pbf
+.env
+__pycache__/
+*.pyc

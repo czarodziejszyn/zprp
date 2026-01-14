@@ -1,0 +1,9 @@
+dataset                 300m radius   500m radius   700m radius
+model                                                          
+LinearGAM              4.073059e+07  4.017767e+07  5.003699e+07
+LinearRegression       5.090107e+07  4.612010e+07  4.679640e+07
+RandomForestRegressor  3.374867e+07  3.420113e+07  3.372151e+07
+XGBRegressor           3.478991e+07  3.522379e+07  3.425711e+07
+Best model: RandomForestRegressor
+Best model MSE: 33721507.01853211
+Best dataset: 700m radius
