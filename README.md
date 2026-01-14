@@ -69,14 +69,18 @@ Note: `make frontend_test` starts a local mock backend for `/prices` and `/chart
    Read your assigned API KEY.
 3) Set API KEY as an environment variable in:
    `zprp/backend/.env`
-4) Start the backend from `/zprp` directory:
+4) Ensure that Docker is running, on linux:
+```
+sudo systemctl start docker
+```
+5) Start the backend from `/zprp` directory:
    This will build and start the Docker containers and import data into the PostgreSQL database.
 
 ```
 make backend
 ```
 
-5) Stop and remove backend Docker containers and volumes when done:
+6) Stop and remove backend Docker containers and volumes when done:
 
 ```
 make stop_backend
