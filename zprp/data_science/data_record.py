@@ -1,4 +1,11 @@
 class DataRecord:
+    """
+    Class that represents one record from dataset.
+    Parameters:
+    - lat (float) - latitude
+    - lon (float) - longitude
+    - radius (int) - within radius infrastructure objects are counted
+    """
     ALL_FEATURES = [
         "lat",
         "lon",
@@ -20,6 +27,14 @@ class DataRecord:
         self.features = self.get_features(lat, lon, radius)
 
     def get_features(self, lat: float, lon: float, radius: int):
+        """
+        Gets infrastructure objects counts for given coordinates within given radius.
+        Parameters:
+        - lat (float) - latitude
+        - lon (float) - longitude
+        - radius (int) - within radius infrastructure objects are counted
+        Returns: full_featurs (dict) - featurs in {obj: count} dict
+        """
         import httpx
 
         url = "http://localhost:8000/nearby"

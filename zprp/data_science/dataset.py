@@ -5,11 +5,23 @@ import pandas as pd
 
 
 class Dataset:
+    """
+    CLass used to create dataset.
+
+    Parameters: 
+    - radius (int) - within radius infrastructure objects are counted
+    - json_path (str) - path to JSON file with offers coordinates and real prices
+    """
+
     def __init__(self, radius: int, json_path: str):
         self.radius = radius
         self.json_path = json_path
 
     def create(self):
+        """
+        Creates dataset.
+        Returns: dataset (DataFrame)
+        """
         with open(self.json_path) as f:
             data = json.load(f)
 
@@ -23,6 +35,10 @@ class Dataset:
         return pd.DataFrame(records)
 
     def save_to_csv(self, save_path: str):
+        """
+        Saves dataset to file.
+        Parameters: save_path (string) - path to save file
+        """
         df = self.create()
         df.to_csv(save_path)
         return df
