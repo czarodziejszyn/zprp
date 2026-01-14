@@ -26,7 +26,7 @@ After cloning this repository go to `zprp/` directory:
 ```
 cd zprp
 ```
-Before first launch, do first 3 steps from [backend section](#how-to-run-backend) and setup environment:
+Before first launch, do first 4 steps from [backend section](#how-to-run-backend) and setup environment:
 ```
 make setup
 ```
