@@ -1,9 +1,12 @@
 import base64
 import json as _json
+import os
 
 import dash
 from dash import Input, Output, State, callback, dcc, html, no_update
 import httpx
+
+BACKEND_BASE_URL = os.getenv("BACKEND_BASE_URL", "http://localhost:8000").rstrip("/")
 
 
 def _point_in_ring(lat: float, lon: float, ring_latlng):
@@ -169,7 +172,7 @@ def analyze_point(analyze_clicks, close_clicks, backdrop_clicks, clicked_point):
     # /prices
     try:
         r = httpx.get(
-            "http://localhost:8000/prices", params={"lat": lat, "lon": lon}, timeout=20.0
+            f"{BACKEND_BASE_URL}/prices", params={"lat": lat, "lon": lon}, timeout=20.0
         )
         if r.status_code == 200:
             data = r.json()
@@ -234,7 +237,7 @@ def analyze_point(analyze_clicks, close_clicks, backdrop_clicks, clicked_point):
 
     # /chart
     try:
-        r2 = httpx.get("http://localhost:8000/chart", timeout=20.0)
+        r2 = httpx.get(f"{BACKEND_BASE_URL}/chart", timeout=20.0)
         if r2.status_code == 200 and r2.content:
             b64 = base64.b64encode(r2.content).decode("ascii")
             chart_src = f"data:image/png;base64,{b64}"
