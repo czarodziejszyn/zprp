@@ -62,7 +62,7 @@ Note: `make frontend_test` starts a local mock backend for `/prices` and `/chart
 
 ## How to run backend:
 
-1) Create a .env file
+1) While in `zprp/backend` directory Create a .env file.
    Copy the file .env.example and rename it to .env. This will be your configuration file for the backend.
 2) Log in to the Warszawa API:
    https://api.um.warszawa.pl/
