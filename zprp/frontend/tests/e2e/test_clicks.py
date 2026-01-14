@@ -42,5 +42,5 @@ def test_click_outside_does_not_change_when_blocked(page, base_url: str):
     before = page.locator("#coords").inner_text()
     page.locator("div.leaflet-container").dblclick(position={"x": 5, "y": 5})
     page.wait_for_timeout(400)
-    after = page.locator("#coords").inner_text()
+    expect(page.locator("#coords")).to_have_text(before, timeout=2000)
     expect(page.locator("#coords")).to_be_visible()

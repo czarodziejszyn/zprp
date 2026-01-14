@@ -1,6 +1,7 @@
 from dash import dcc, html
 import dash_leaflet as dl
-import utils.callbacks
+
+from . import callbacks  # noqa: F401
 
 
 def build_analysis_modal():
@@ -92,20 +93,20 @@ def build_analysis_modal():
 
 def build_map(warsaw: dict, area_outside_warsaw: list | None):
     return dl.Map(
-        id="leaflet-map",
-        center=(warsaw["lat"], warsaw["lon"]),
-        zoom=11,
-        minZoom=10,
-        maxZoom=17,
-        dragging=False,
-        doubleClickZoom=False,
-        scrollWheelZoom=False,
-        touchZoom=False,
-        boxZoom=False,
-        keyboard=False,
-        style={"position": "fixed", "inset": 0, "height": "100vh", "width": "100vw"},
-        children=[
-            dl.TileLayer(),
+            id="leaflet-map",
+            center=(warsaw["lat"], warsaw["lon"]),
+            zoom=11,
+            minZoom=10,
+            maxZoom=17,
+            dragging=False,
+            doubleClickZoom=False,
+            scrollWheelZoom=False,
+            touchZoom=False,
+            boxZoom=False,
+            keyboard=False,
+            style={"position": "fixed", "inset": 0, "height": "100vh", "width": "100vw"},
+            children=[
+                dl.TileLayer(),
             (
                 dl.Polygon(
                     positions=(area_outside_warsaw or []),
@@ -140,7 +141,7 @@ def build_map(warsaw: dict, area_outside_warsaw: list | None):
                     ),
                 ],
             ),
-        ],
+            ],
     )
 
 
@@ -174,38 +175,38 @@ def build_search_bar():
 
 def build_coords_box(warsaw: dict):
     return html.Div(
-        f"lat={warsaw['lat']:.6f}, lon={warsaw['lon']:.6f}",
-        id="coords",
-        style={
-            "position": "fixed",
-            "bottom": 8,
-            "left": 8,
-            "background": "#fff",
-            "color": "#000",
-            "padding": "6px 8px",
-            "border": "1px solid #ddd",
-            "borderRadius": "4px",
-            "fontFamily": "monospace",
-            "zIndex": 1000,
-        },
+            f"lat={warsaw['lat']:.6f}, lon={warsaw['lon']:.6f}",
+            id="coords",
+            style={
+                "position": "fixed",
+                "bottom": 8,
+                "left": 8,
+                "background": "#fff",
+                "color": "#000",
+                "padding": "6px 8px",
+                "border": "1px solid #ddd",
+                "borderRadius": "4px",
+                "fontFamily": "monospace",
+                "zIndex": 1000,
+            },
     )
 
 
 def build_analyze_button():
     return html.Button(
-        "analizuj",
-        id="analyze-btn",
-        style={
-            "position": "fixed",
-            "bottom": 8,
-            "right": 8,
-            "background": "#fff",
-            "padding": "6px 10px",
-            "border": "1px solid #ddd",
-            "borderRadius": "4px",
-            "cursor": "pointer",
-            "zIndex": 1000,
-        },
+            "analizuj",
+            id="analyze-btn",
+            style={
+                "position": "fixed",
+                "bottom": 8,
+                "right": 8,
+                "background": "#fff",
+                "padding": "6px 10px",
+                "border": "1px solid #ddd",
+                "borderRadius": "4px",
+                "cursor": "pointer",
+                "zIndex": 1000,
+            },
     )
 
 

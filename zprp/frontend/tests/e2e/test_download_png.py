@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import re
 
 from playwright.sync_api import expect
 
@@ -7,7 +8,9 @@ from playwright.sync_api import expect
 def test_download_chart_png(page, base_url: str, tmp_path: Path):
     page.goto(base_url, wait_until="networkidle")
     page.click("#analyze-btn")
-    page.wait_for_timeout(800)
+    expect(page.locator("#modal-chart")).to_have_attribute(
+        "src", re.compile(r"^data:image/png;base64,"), timeout=10000
+    )
     with page.expect_download() as dl_info:
         page.click("#download-chart-modal-btn")
     download = dl_info.value
