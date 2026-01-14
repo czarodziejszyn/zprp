@@ -1,6 +1,16 @@
-# About the project
+# About the project - Real Estate & Urban Infrastructure Analyzer
 
-TODO: goals, functions etc
+A web application designed to analyze the impact of urban infrastructure on real estate prices. This project leverages geospatial and market data to evaluate how proximity to city amenities affects housing values.
+## Key Features:
+
+* Infrastructure Impact Analysis: Evaluates how proximity to parks, public transport, schools, and other urban amenities influences market prices.
+
+* Predictive Modeling: Uses Machine Learning to estimate property values based on precise geographical coordinates and surrounding infrastructure density.
+
+* Spatial Visualization: Generates charts to illustrate real estate trends.
+
+* Data Integration: Combines live data from the Warsaw Open Data API with market records and geocoded listings.
+
 
 # Data sources
 

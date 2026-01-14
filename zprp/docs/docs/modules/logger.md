@@ -1,26 +1,3 @@
-# Logger reference
-This module is responsible for unifing logging configuration for all modules.
-
-
-The configuration is defined in logger.py. It sets a global message format and adjusts the verbosity of third-party libraries (httpx)
-Python
-
-
-Every log entry includes the severity level, the name of the module where the log originated, and the message.
-
-
-
-## Usage in Modules
-
-To use this configuration in any part of the project, it needs to be imported before initializing local logger. This ensures the global settings are applied first.
-
-## Controling level of details
-You can control the detail of the logs via the .env file by LOG_LEVEL variable, which defines the minimum severity of logs to display.
-        Example for development: LOG_LEVEL=DEBUG
-        Example for production: LOG_LEVEL=INFO (default)
-
-
-====
 # Logging Configuration
 
 This module provides a unified logging configuration used across all project components.
