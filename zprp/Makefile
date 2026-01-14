@@ -13,6 +13,7 @@ SCRAPER_DIR = scraper
 VENV = .venv
 VENV_PYTHON = $(VENV)/bin/python
 VENV_PIP = $(VENV)/bin/pip
+BIN = $(VENV)/bin
 
 # Frontend (Dash) settings
 FRONTEND_HOST ?= 127.0.0.1
@@ -60,17 +61,32 @@ clean:
 
 
 ## Lint using flake8, black, and isort (use `make format` to do formatting)
+# .PHONY: lint
+# lint:
+# 	flake8 .
+# 	isort --check --diff .
+# 	black --check .
+
+## Lint code (flake8, isort, black)
 .PHONY: lint
 lint:
-	flake8 .
-	isort --check --diff .
-	black --check .
+	$(BIN)/flake8 .
+	$(BIN)/isort --check --diff .
+	$(BIN)/black --check .
+
 
 ## Format source code with black
+# .PHONY: format
+# format:
+# 	isort .
+# 	black .
+
+## Format code (isort + black)
 .PHONY: format
 format:
-	isort .
-	black .
+	$(BIN)/isort .
+	$(BIN)/black .
+
 
 
 
