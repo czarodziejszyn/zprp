@@ -3,7 +3,7 @@
 A web application designed to analyze the impact of urban infrastructure on real estate prices. This project leverages geospatial and market data to evaluate how proximity to city amenities affects housing values.
 ## Key Features:
 
-* Infrastructure Impact Analysis: Evaluates how proximity to parks, public transport, schools, and other urban amenities influences market prices.
+* Infrastructure Impact Analysis: Evaluates how proximity to forests, bus stops, hotels, and other urban amenities influences market prices.
 
 * Predictive Modeling: Uses Machine Learning to estimate property values based on precise geographical coordinates and surrounding infrastructure density.
 
@@ -26,7 +26,7 @@ After cloning this repository go to `zprp/` directory:
 ```
 cd zprp
 ```
-To setup environment:
+Before first launch, do first 3 steps from [backend section](#how-to-run-backend) and setup environment:
 ```
 make setup
 ```
