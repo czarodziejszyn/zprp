@@ -235,12 +235,12 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@$(PYTHON_INTERPRETER) -c "${PRINT_HELP_PYSCRIPT}" < $(MAKEFILE_LIST)
 
-## Run tests with coverage
-.PHONY: coverage
-coverage:
-	$(BIN)/pytest \
-		--cov=zprp \
-		--cov-report=term-missing \
-		--cov-report=xml \
-		--cov-report=html
+
+## Build MkDocs documentation
+.PHONY: docs
+docs:
+	$(BIN)/mkdocs build -f docs/mkdocs.yml
+
+docs-serve:
+	$(BIN)/mkdocs serve -f docs/mkdocs.yml
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-dane po warszawsku. tuytulowa strona do wszystkich stron
+A web application designed to analyze the impact of urban infrastructure on real estate prices. This project leverages geospatial and market data to evaluate how proximity to city amenities affects housing values.
 
 ## Commands
 
