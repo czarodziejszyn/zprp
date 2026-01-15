@@ -127,7 +127,7 @@ docker login
 
 3) Update offers cache:
    This command replaces the existing `./raw/otodom_warszawa.json` and `./processed/geocoded_otodom_warszawa.json` files with a fresh one.
-   **Note:** Scraping setup takes around 5 minutes. Geocoding setup (Nominatim initialization) can takes around 45 minutes.
+   **Note:** Scraping setup takes around 5 minutes. Geocoding setup (Nominatim initialization) can take around 45 minutes.
 
 ```
 make update_offers_cache
@@ -179,4 +179,17 @@ The project uses pytest for testing. You can execute the full suite using comman
 
 ```
 make unit_tests
+```
+
+### Data science testing
+
+From the `zprp/` directory:
+
+```
+test_data_science
+```
+or
+
+```
+test-cov_data_science
 ```
