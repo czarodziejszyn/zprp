@@ -22,10 +22,6 @@ This python file contains Data_record class that represents one record from data
 
 This python file contains Dataset class, that is used for creating datasets.
 
-## `get_random_loc.py`
-
-This python program was used to get random location from Warsaw, while creating dataset before we had real scraped offers.
-
 ## `model_comparison.txt`
 
 This file contains output of `compare_models.py` program. It shows how different models performed on different radius datasets and shows which model and radius are best.
