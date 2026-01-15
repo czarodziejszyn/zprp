@@ -256,3 +256,7 @@ test-cov_data_science:
 		--cov=data_science \
 		--cov-report=term-missing \
 		--cov-report=html
+
+# data_science compare models
+compare_models:
+	$(VENV_PYTHON) data_science/compare_models.py
