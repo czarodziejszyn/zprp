@@ -133,6 +133,16 @@ docker login
 make update_offers_cache
 ```
 
+## data_science
+
+### Comparing models
+
+To run program to compare models:
+
+```
+make compare_models
+```
+
 # How to run tests:
 
 To ensure the system is stable and all modules are functioning correctly, you should run the automated test suite.
