@@ -51,8 +51,8 @@ def wait_for_nominatim(timeout_minutes: int = 60, interval_seconds: int = 60):
 
             logger.info(f"Nominatim not ready yet (attempt {attempt})")
 
-        except Exception as e:
-            logger.warning(f"Nominatim not ready yet (attempt {attempt}): {e}")
+        except Exception:
+            logger.info(f"Nominatim not ready yet (attempt {attempt})")
 
         time.sleep(interval_seconds)
 
