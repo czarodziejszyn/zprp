@@ -14,7 +14,8 @@ from xgboost import XGBRegressor
 
 def prepare_datasets(data):
     X, y = data.drop("cost", axis=1), data["cost"]
-    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_val, y_train, y_val = train_test_split(
+        X, y, test_size=0.2, random_state=42)
     return X_train, X_val, y_train, y_val
 
 
@@ -80,9 +81,9 @@ def test_model(model, X_val, y_val):
 
 if __name__ == "__main__":
     datasets = {
-        "300m radius": pd.read_csv("../data/processed/warsaw_house_data_300.csv", index_col=0),
-        "500m radius": pd.read_csv("../data/processed/warsaw_house_data_500.csv", index_col=0),
-        "700m radius": pd.read_csv("../data/processed/warsaw_house_data_700.csv", index_col=0),
+        "300m radius": pd.read_csv("data/processed/warsaw_house_data_300.csv", index_col=0),
+        "500m radius": pd.read_csv("data/processed/warsaw_house_data_500.csv", index_col=0),
+        "700m radius": pd.read_csv("data/processed/warsaw_house_data_700.csv", index_col=0),
     }
 
     models = {
@@ -111,26 +112,29 @@ if __name__ == "__main__":
                 best_coeffs = coeffs
                 best_dataset = data_name
 
-            results.append({"dataset": data_name, "model": model_name, "mse": mse})
+            results.append(
+                {"dataset": data_name, "model": model_name, "mse": mse})
 
     results_df = pd.DataFrame(results)
-    comparison = results_df.pivot(index="model", columns="dataset", values="mse")
+    comparison = results_df.pivot(
+        index="model", columns="dataset", values="mse")
 
     print(comparison)
 
     print(f"Best model: {best_model_name}")
     print(f"Best model MSE: {best_mse}")
     print(f"Best dataset: {best_dataset}")
-    with open("../models/model.pkl", "wb") as f:
+    with open("/models/model.pkl", "wb") as f:
         pickle.dump(best_model, f)
 
     plt.figure(figsize=(8, 5))
-    plt.barh(best_coeffs["Feature"], best_coeffs["Feature Importance"], color="skyblue")
+    plt.barh(best_coeffs["Feature"],
+             best_coeffs["Feature Importance"], color="skyblue")
     plt.title("Wpływ poszczególnych cech na wynik")
     plt.xlabel('"Ważność" cechy')
     plt.ylabel("Cecha")
     plt.gca().invert_yaxis()
     plt.grid(axis="x", linestyle="--", alpha=0.7)
     plt.tight_layout()
-    plt.savefig("../reports/figures/chart.png")
+    plt.savefig("/reports/figures/chart.png")
     plt.show()
