@@ -14,6 +14,7 @@ VENV = .venv
 VENV_PYTHON = $(VENV)/bin/python
 VENV_PIP = $(VENV)/bin/pip
 BIN = $(VENV)/bin
+DSPATH = data_science
 
 # Frontend (Dash) settings
 FRONTEND_HOST ?= 127.0.0.1
@@ -244,3 +245,14 @@ docs:
 docs-serve:
 	$(BIN)/mkdocs serve -f docs/mkdocs.yml
 
+
+# data_science tests
+test_data_science:
+	PYTHONPATH=$(DSPATH) $(BIN)/pytest -v data_science/tests
+
+test-cov_data_science:
+	PYTHONPATH=$(DSPATH) $(BIN)/pytest \
+		-v data_science/tests \
+		--cov=data_science \
+		--cov-report=term-missing \
+		--cov-report=html
